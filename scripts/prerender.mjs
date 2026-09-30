@@ -113,7 +113,7 @@ function head(lang, key) {
         `<script type="application/ld+json">${jsonLd(lang, key)}</script>`,
   ]
   if (key === 'home') {
-    lines.push(`<link rel="preload" as="image" fetchpriority="high" type="image/avif" imagesrcset="/photos/silviaPortraitBlue-480.avif 480w, /photos/silviaPortraitBlue-920.avif 920w" imagesizes="(min-width: 640px) 40vw, 60vw" />`)
+    lines.push(`<link rel="preload" as="image" fetchpriority="high" type="image/avif" imagesrcset="/photos/silviaRetrato-480.avif 480w, /photos/silviaRetrato-920.avif 920w" imagesizes="(min-width: 640px) 40vw, 60vw" />`)
   }
   const hero = key === 'home' ? null : heroByRoute[key]
   if (hero) {

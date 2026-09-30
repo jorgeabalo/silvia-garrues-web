@@ -108,11 +108,11 @@ export function HomeExperience() {
             <div key={s.id} aria-hidden className={`xp-bg xp-soft absolute inset-0 -z-20 ${i === index ? 'is-active' : ''}`}>
               {/* Retrato de Silvia en color sobre azul suave, enmarcado en arco */}
               <div className="xp-portrait absolute left-1/2 top-24 h-[42%] -translate-x-1/2 sm:left-auto sm:right-[6%] sm:top-1/2 sm:h-[74%] sm:-translate-y-[46%] sm:translate-x-0 lg:right-[9%]">
-                <picture className="block h-full overflow-hidden rounded-t-[999px] rounded-b-[36px] shadow-[0_40px_90px_-30px_rgba(10,30,70,.55)] ring-1 ring-white/40" style={{ aspectRatio: '920 / 1170' }}>
-                  <source type="image/avif" srcSet="/photos/silviaPortraitBlue-480.avif 480w, /photos/silviaPortraitBlue-920.avif 920w" sizes="(min-width: 640px) 40vw, 60vw" />
+                <picture className="block h-full overflow-hidden rounded-[32px] shadow-[0_40px_90px_-30px_rgba(10,30,70,.55)] ring-1 ring-white/40" style={{ aspectRatio: '920 / 1150' }}>
+                  <source type="image/avif" srcSet="/photos/silviaRetrato-480.avif 480w, /photos/silviaRetrato-920.avif 920w" sizes="(min-width: 640px) 40vw, 60vw" />
                   <img
-                    src="/photos/silviaPortraitBlue-920.webp"
-                    srcSet="/photos/silviaPortraitBlue-480.webp 480w, /photos/silviaPortraitBlue-920.webp 920w"
+                    src="/photos/silviaRetrato-920.webp"
+                    srcSet="/photos/silviaRetrato-480.webp 480w, /photos/silviaRetrato-920.webp 920w"
                     sizes="(min-width: 640px) 40vw, 60vw"
                     width={920}
                     height={1170}
