@@ -14,7 +14,7 @@ import { Photo } from '../components/Photo'
  */
 const DURATION = 16000
 
-export function IntroFilm() {
+export function IntroFilm({ embedded = false, onCta }: { embedded?: boolean; onCta?: () => void }) {
   const { t, to } = useI18n()
   const i = t.intro
   const [run, setRun] = useState(0)
@@ -38,7 +38,7 @@ export function IntroFilm() {
   }
 
   return (
-    <section aria-label={i.label} className="relative flex min-h-[100svh] flex-col overflow-hidden bg-gradient-to-b from-cream via-paper to-paper pb-28 pt-20">
+    <section aria-label={i.label} className={`relative flex flex-col overflow-hidden bg-gradient-to-b from-cream via-paper to-paper ${embedded ? 'min-h-[min(88svh,760px)] rounded-[28px] pb-16 pt-10' : 'min-h-[100svh] pb-28 pt-20'}`}>
       <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_50%_at_50%_0%,rgba(42,91,196,.10),transparent_70%)]" />
 
       <div key={run} className={`intro relative mx-auto flex w-full max-w-[1100px] flex-1 flex-col justify-center px-3 ${skipped ? 'intro-skip' : ''}`}>
@@ -47,9 +47,9 @@ export function IntroFilm() {
           <svg viewBox="0 0 800 560" className="block h-auto w-full" role="img" aria-label={[...i.scenes, i.finale].join(' ')}>
             <defs>
               <radialGradient id="calm" cx="50%" cy="38%" r="55%">
-                <stop offset="0" stopColor="#FFE9C7" stopOpacity=".95" />
-                <stop offset=".45" stopColor="#F6E7D2" stopOpacity=".55" />
-                <stop offset="1" stopColor="#FFFBF6" stopOpacity="0" />
+                <stop offset="0" stopColor="#DCEBFF" stopOpacity=".95" />
+                <stop offset=".45" stopColor="#EAF2FF" stopOpacity=".55" />
+                <stop offset="1" stopColor="#FFFFFF" stopOpacity="0" />
               </radialGradient>
             </defs>
 
@@ -62,11 +62,11 @@ export function IntroFilm() {
             <path className="i-crack" pathLength={1} d="M400 470 l-12 16 l16 12 l-14 18 l12 20 l-8 16" fill="none" stroke="#172238" strokeOpacity=".45" strokeWidth="2.5" strokeLinejoin="round" />
 
             {/* Línea serena final */}
-            <path className="i-line" pathLength={1} d="M150 470 H650" stroke="#C8964F" strokeWidth="3" strokeLinecap="round" />
+            <path className="i-line" pathLength={1} d="M150 470 H650" stroke="#6FA8FF" strokeWidth="3" strokeLinecap="round" />
 
             {/* Cuerda de la disputa */}
             <g className="i-rope">
-              <path d="M166 392 Q400 404 634 392" fill="none" stroke="#C8964F" strokeWidth="3.5" strokeLinecap="round" strokeDasharray="10 7" className="i-rope-dash" />
+              <path d="M166 392 Q400 404 634 392" fill="none" stroke="#6FA8FF" strokeWidth="3.5" strokeLinecap="round" strokeDasharray="10 7" className="i-rope-dash" />
             </g>
 
             {/* Casa */}
@@ -117,15 +117,15 @@ export function IntroFilm() {
             <g className="i-kid">
               <g className="i-kid-shake">
                 <g transform="translate(400 470)">
-                  <circle cx="0" cy="-94" r="14" fill="#C8964F" />
-                  <rect x="-16" y="-74" width="32" height="74" rx="16" fill="#C8964F" />
+                  <circle cx="0" cy="-94" r="14" fill="#6FA8FF" />
+                  <rect x="-16" y="-74" width="32" height="74" rx="16" fill="#6FA8FF" />
                 </g>
               </g>
             </g>
 
             {/* Corazón inicial */}
             <g className="i-heart">
-              <path transform="translate(400 318)" d="M0 12 C-18 -2 -22 -14 -12 -20 C-6 -24 -1 -20 0 -16 C1 -20 6 -24 12 -20 C22 -14 18 -2 0 12 Z" fill="#E7A27B" />
+              <path transform="translate(400 318)" d="M0 12 C-18 -2 -22 -14 -12 -20 C-6 -24 -1 -20 0 -16 C1 -20 6 -24 12 -20 C22 -14 18 -2 0 12 Z" fill="#9CC4FF" />
             </g>
           </svg>
 
@@ -148,15 +148,15 @@ export function IntroFilm() {
         </div>
 
         <div className="i-cta mt-2 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-          <Button to={to('contact')}>{t.hero.ctaPrimary}</Button>
-          <a href="#inicio" className="inline-flex min-h-[44px] items-center gap-2 px-4 text-[14px] font-medium text-ink/60 hover:text-ink">
+          <span onClick={onCta}><Button to={to('contact')}>{t.hero.ctaPrimary}</Button></span>
+          {!embedded && <a href="#inicio" className="inline-flex min-h-[44px] items-center gap-2 px-4 text-[14px] font-medium text-ink/60 hover:text-ink">
             <ArrowDown className="h-4 w-4" /> {t.hero.ctaSecondary}
-          </a>
+          </a>}
         </div>
       </div>
 
       {/* Controles */}
-      <div className="absolute bottom-24 right-4 z-10 sm:bottom-8 sm:right-8">
+      <div className={`absolute z-10 ${embedded ? 'bottom-4 right-4' : 'bottom-24 right-4 sm:bottom-8 sm:right-8'}`}>
         {ended ? (
           <button type="button" onClick={replay} className="inline-flex min-h-[40px] items-center gap-2 rounded-full border border-ink/10 bg-white/80 px-4 text-[13px] font-medium text-ink/70 backdrop-blur hover:text-ink">
             <RotateCcw className="h-3.5 w-3.5" /> {i.replay}

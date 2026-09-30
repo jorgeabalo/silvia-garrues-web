@@ -42,6 +42,9 @@ const es = {
     articles: 'Artículos',
     contact: 'Contacto',
     consult: 'Consulta',
+    book: 'Pedir cita',
+    faq: 'Preguntas',
+    specialties: 'Especialidades',
     menu: 'Menú',
     close: 'Cerrar',
     legal: 'Aviso legal',
@@ -93,8 +96,8 @@ const es = {
 
   specialties: {
     kicker: 'Especialidades',
-    title: 'Divorcios, familia, herencias. *Y cuando hace falta, penal.*',
-    intro: 'Asesora en cualquier rama del Derecho, pero su trabajo se concentra donde más está en juego: la familia.',
+    title: 'Lo que más *nos importa:* tu familia.',
+    intro: 'Divorcios y separaciones, familia, herencias, derecho penal y violencia de género y doméstica. Asesora en cualquier rama del Derecho, pero su trabajo se concentra donde más está en juego.',
     others: 'También asesora en',
   },
 
@@ -110,6 +113,81 @@ const es = {
     pathTitle: 'El camino',
     quote: 'Nuestra actitud profesional te ayudará a encontrar puntos en común, incluso en las situaciones más complicadas, pero siempre seremos firmes en mantener tus derechos.',
     quoteSource: 'ADOS · Abokatuak eta Bitartekariak',
+  },
+
+  exp: {
+    label: 'Primero, el diálogo',
+    hold: 'Mantén pulsado para entrar',
+    holdShort: 'Entrar',
+    enter: 'Entrar',
+    next: 'Siguiente',
+    prev: 'Anterior',
+    scroll: 'Desliza para descubrir',
+    chapters: 'Capítulos',
+    intro: {
+      word: 'Silvia Garrues',
+      text: 'Abogada y mediadora. Más de 15 años de experiencia en divorcios, familia, herencias y derecho penal. Con calma. Con firmeza.',
+    },
+    words: {
+      divorcios: 'Divorcios',
+      familia: 'Familia',
+      herencias: 'Herencias',
+      penal: 'Penal',
+      violencia: 'Protección',
+    },
+    final: {
+      word: 'Hablemos',
+      text: 'Cuéntanos tu caso. Te escucharemos con calma y te diremos con claridad qué camino tiene más sentido: el acuerdo o el juzgado.',
+    },
+  },
+
+  cine: {
+    kicker: 'Silvia Garrues Remírez · Abogada y mediadora',
+    title: 'Divorcios, familia, herencias y penal.',
+    accent: 'Con calma. Con firmeza.',
+    text: 'Más de 15 años de experiencia en los asuntos que más importan: los tuyos y los de tu familia. Primero, el diálogo. Si hace falta, el juzgado.',
+    cta: 'Solicitar consulta',
+    play: 'Ver la historia',
+    playHint: '16 s',
+    call: 'Llamar',
+    scroll: 'Descubre más',
+    close: 'Cerrar vídeo',
+  },
+
+  faq: {
+    kicker: 'Preguntas frecuentes',
+    title: 'Lo que más *nos preguntan.*',
+    note: 'Información general. Cada caso es distinto: consúltanos el tuyo.',
+    items: [
+      {
+        q: '¿Cuánto tiempo hay que estar casado para poder divorciarse?',
+        a: 'En España se puede solicitar el divorcio una vez transcurridos tres meses desde la boda. No es necesario esperar ese plazo si existe un riesgo para la vida, la integridad o la libertad del cónyuge o de los hijos.',
+      },
+      {
+        q: '¿Qué diferencia hay entre un divorcio de mutuo acuerdo y uno contencioso?',
+        a: 'En el de mutuo acuerdo, ambos pactan las medidas (hijos, vivienda, pensiones y bienes) en un convenio regulador que aprueba el juez o, si no hay hijos menores, puede formalizarse ante notario. En el contencioso no hay acuerdo y es el juez quien decide.',
+      },
+      {
+        q: '¿Para qué sirve la mediación?',
+        a: 'Permite que la pareja, con un tercero neutral, alcance sus propios acuerdos. Suele ser más rápida y menos costosa, y protege la relación, algo muy importante cuando hay hijos. Si no hay acuerdo, siempre queda la vía judicial.',
+      },
+      {
+        q: '¿Cómo se decide la custodia de los hijos?',
+        a: 'La custodia puede ser de uno de los progenitores o compartida. Se decide siempre atendiendo al interés del menor, y puede pactarse en el convenio regulador o resolverla el juez.',
+      },
+      {
+        q: '¿Qué pasa con una herencia si no hay testamento?',
+        a: 'La ley determina quiénes heredan y en qué orden, mediante una declaración de herederos. En Euskadi se aplica además el Derecho Civil Vasco, que tiene reglas propias. Conviene revisar cada caso antes de aceptar o repartir.',
+      },
+      {
+        q: '¿Qué hago si sufro violencia en mi familia o en mi pareja?',
+        a: 'Si estás en peligro, llama al 112. El 016 atiende a víctimas de violencia de género las 24 horas y no deja rastro en la factura. Una abogada puede asesorarte sobre la denuncia y las medidas de protección.',
+      },
+      {
+        q: '¿En qué idiomas atendéis?',
+        a: 'En castellano, euskera e inglés.',
+      },
+    ],
   },
 
   film: { label: 'Silvia · Tolosa · Derecho' },

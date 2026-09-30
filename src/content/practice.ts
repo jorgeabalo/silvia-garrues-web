@@ -97,6 +97,7 @@ export const practiceAreas: PracticeArea[] = [
   {
     slug: 'penal',
     tier: 'main',
+    photo: 'courthouse',
     name: { es: 'Derecho penal', eu: 'Zigor-zuzenbidea' },
     short: {
       es: 'Asesoramiento y defensa legal en derecho penal y penal económico, incluido el compliance penal de la empresa.',
@@ -125,6 +126,19 @@ export const practiceAreas: PracticeArea[] = [
         'Trafiko-delituak',
         'Compliance penala',
       ],
+    },
+  },
+  {
+    slug: 'violencia',
+    tier: 'main',
+    name: { es: 'Violencia de género y doméstica', eu: 'Genero-indarkeria eta etxeko indarkeria' },
+    short: {
+      es: 'Asesoramiento y defensa en delitos de violencia de género y en el ámbito familiar, con la discreción y la protección que cada caso exige.',
+      eu: 'Aholkularitza eta defentsa genero-indarkeriako eta familia-eremuko delituetan, kasu bakoitzak eskatzen duen diskrezio eta babesarekin.',
+    },
+    items: {
+      es: ['Delitos de violencia de género', 'Violencia en el ámbito familiar', 'Delitos contra las personas', 'Delito de lesiones', 'Medidas de protección'],
+      eu: ['Genero-indarkeriako delituak', 'Familia-eremuko indarkeria', 'Pertsonen aurkako delituak', 'Lesio-delitua', 'Babes-neurriak'],
     },
   },
   {

@@ -14,7 +14,7 @@ export function DivorceSection() {
   const steps = t.pages.services.mediationSteps
   return (
     <section className="relative mx-3 overflow-hidden rounded-[36px] bg-gradient-to-b from-cream to-mist py-20 sm:mx-5 sm:py-28 lg:mx-8">
-      <div aria-hidden className="pointer-events-none absolute -right-40 -top-40 h-[520px] w-[520px] rounded-full bg-[#FFE3BD]/50 blur-[120px]" />
+      <div aria-hidden className="pointer-events-none absolute -right-40 -top-40 h-[520px] w-[520px] rounded-full bg-[#DCEBFF]/50 blur-[120px]" />
       <div className="page-x relative">
         <AnimatedSection as="div" className="grid gap-12 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">

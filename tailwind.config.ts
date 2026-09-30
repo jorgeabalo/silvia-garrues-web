@@ -5,17 +5,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        paper: '#FFFBF6',      // blanco cálido (base)
-        cream: '#FBF4EA',      // crema suave
-        mist: '#F4EDE3',       // arena muy clara (antes gris frío)
-        line: '#EADFD1',
-        ink: '#172238',        // azul casi negro, cálido
-        abyss: '#15315F',      // azul profundo cálido
-        intense: '#2A5BC4',    // azul intenso
-        atlantic: '#3C6C9E',   // azul medio
-        night: '#0E1D38',      // footer
-        haze: '#C9D8EE',       // azul muy claro
-        gold: '#C8964F',       // acento cálido (uso mínimo)
+        paper: '#FFFFFF',      // blanco
+        cream: '#F5F8FC',      // blanco azulado
+        mist: '#EEF3FA',       // gris azulado muy claro
+        line: '#DEE6F1',
+        ink: '#0B1830',        // azul casi negro
+        abyss: '#0F2A5C',      // azul profundo
+        intense: '#1F56D6',    // azul intenso
+        atlantic: '#3A6FB5',   // azul medio
+        night: '#07142B',      // azul noche
+        haze: '#C9DAF3',       // azul muy claro
+        sky: '#6FA8FF',        // acento azul luminoso
       },
       fontFamily: {
         sans: ['"Inter Tight Variable"', 'system-ui', 'sans-serif'],

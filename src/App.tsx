@@ -2,8 +2,7 @@ import { useEffect, type ComponentType } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import { I18nProvider } from './i18n'
 import { allRoutes, langFromPath, resolve, type RouteKey } from './i18n/routes'
-import { TopBar } from './components/TopBar'
-import { FloatingNavigation } from './components/FloatingNavigation'
+import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 import { Head } from './components/Head'
 import HomePage from './pages/HomePage'
@@ -48,7 +47,7 @@ export default function App() {
     <I18nProvider lang={lang} routeKey={match?.key ?? null}>
       <Head />
       <ScrollManager />
-      <TopBar />
+      <Header />
       <main id="main" key={pathname} className="page-enter">
         <Routes>
           {allRoutes.map(({ key, path }) => {
@@ -59,7 +58,6 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
-      <FloatingNavigation />
     </I18nProvider>
   )
 }

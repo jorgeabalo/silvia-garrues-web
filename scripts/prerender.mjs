@@ -16,7 +16,7 @@ const template = fs.readFileSync(path.join(dist, 'index.html'), 'utf8')
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;')
 const abs = (u) => (u.startsWith('/') ? site.url + u : u)
 const ogImage = abs(photoUrl(photos.silviaDesk, 1200, 1200 / 630))
-const heroByRoute = { home: 'silviaDesk', silvia: 'silviaStanding' }
+const heroByRoute = { home: 'silviaStanding', silvia: 'silviaStanding' }
 
 function jsonLd(lang, key) {
   const t = dictionaries[lang]
@@ -69,6 +69,12 @@ function jsonLd(lang, key) {
       })),
     }
   }
+  if (key === 'home') {
+    graph.push({
+      '@type': 'FAQPage',
+      mainEntity: t.faq.items.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+    })
+  }
   if (key !== 'home') {
     graph.push({
       '@type': 'BreadcrumbList',
@@ -110,7 +116,7 @@ function head(lang, key) {
   if (hero) {
     const p = photos[hero]
     // Preload SOLO de la imagen principal
-    lines.push(`<link rel="preload" as="image" fetchpriority="high" imagesrcset="${srcSet(p, undefined)}" imagesizes="${key === 'home' ? '(min-width: 1024px) 50vw, 100vw' : '(min-width: 640px) 66vw, 100vw'}" />`)
+    lines.push(`<link rel="preload" as="image" fetchpriority="high" imagesrcset="${srcSet(p, undefined)}" imagesizes="${key === 'home' ? '(min-width: 1024px) 66vw, 100vw' : '(min-width: 640px) 66vw, 100vw'}" />`)
   }
   return lines.join('\n    ')
 }

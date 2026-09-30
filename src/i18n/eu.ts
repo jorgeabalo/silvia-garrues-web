@@ -44,6 +44,9 @@ const eu: Dict = {
     articles: 'Artikuluak',
     contact: 'Harremanetarako',
     consult: 'Kontsulta',
+    book: 'Hitzordua eskatu',
+    faq: 'Galderak',
+    specialties: 'Espezialitateak',
     menu: 'Menua',
     close: 'Itxi',
     legal: 'Lege-oharra',
@@ -95,8 +98,8 @@ const eu: Dict = {
 
   specialties: {
     kicker: 'Espezialitateak',
-    title: 'Dibortzioak, familia, jaraunspenak. *Eta behar denean, zigor-arloa.*',
-    intro: 'Zuzenbidearen edozein adarretan aholkatzen du, baina bere lana gehien jokoan dagoen lekuan biltzen da: familian.',
+    title: 'Gehien *axola zaiguna:* zure familia.',
+    intro: 'Dibortzioak eta banantzeak, familia, jaraunspenak, zigor-zuzenbidea eta genero- eta etxeko indarkeria. Zuzenbidearen edozein adarretan aholkatzen du, baina bere lana gehien jokoan dagoen lekuan biltzen da.',
     others: 'Honetan ere aholkatzen du:',
   },
 
@@ -112,6 +115,81 @@ const eu: Dict = {
     pathTitle: 'Bidea',
     quote: 'Gure jarrera profesionalak puntu komunak aurkitzen lagunduko dizu, egoerarik zailenetan ere, baina beti izango gara irmoak zure eskubideak mantentzen.',
     quoteSource: 'ADOS · Abokatuak eta Bitartekariak',
+  },
+
+  exp: {
+    label: 'Lehenik, elkarrizketa',
+    hold: 'Eduki sakatuta sartzeko',
+    holdShort: 'Sartu',
+    enter: 'Sartu',
+    next: 'Hurrengoa',
+    prev: 'Aurrekoa',
+    scroll: 'Irristatu gehiago ezagutzeko',
+    chapters: 'Kapituluak',
+    intro: {
+      word: 'Silvia Garrues',
+      text: 'Abokatua eta bitartekaria. 15 urtetik gorako esperientzia dibortzioetan, familian, jaraunspenetan eta zigor-zuzenbidean. Lasai. Irmo.',
+    },
+    words: {
+      divorcios: 'Dibortzioak',
+      familia: 'Familia',
+      herencias: 'Jaraunspenak',
+      penal: 'Zigor-arloa',
+      violencia: 'Babesa',
+    },
+    final: {
+      word: 'Hitz egin dezagun',
+      text: 'Kontatu zure kasua. Lasai entzungo dizugu eta argi esango dizugu zein bidek duen zentzu gehiago: akordioak ala epaitegiak.',
+    },
+  },
+
+  cine: {
+    kicker: 'Silvia Garrues Remírez · Abokatua eta bitartekaria',
+    title: 'Dibortzioak, familia, jaraunspenak eta zigor-arloa.',
+    accent: 'Lasai. Irmo.',
+    text: '15 urtetik gorako esperientzia gehien axola duten gaietan: zureak eta zure familiarenak. Lehenik, elkarrizketa. Behar bada, epaitegia.',
+    cta: 'Eskatu kontsulta',
+    play: 'Ikusi istorioa',
+    playHint: '16 s',
+    call: 'Deitu',
+    scroll: 'Ezagutu gehiago',
+    close: 'Itxi bideoa',
+  },
+
+  faq: {
+    kicker: 'Ohiko galderak',
+    title: 'Gehien *galdetzen digutena.*',
+    note: 'Informazio orokorra. Kasu bakoitza desberdina da: kontsultatu zurea.',
+    items: [
+      {
+        q: 'Zenbat denbora egon behar da ezkonduta dibortziatu ahal izateko?',
+        a: 'Espainian, ezkontzatik hiru hilabete igaro ondoren eska daiteke dibortzioa. Ez da epe hori itxaron behar ezkontidearen edo seme-alaben bizitzarako, osotasunerako edo askatasunerako arriskua badago.',
+      },
+      {
+        q: 'Zer desberdintasun dago adostasunezko dibortzioaren eta kontentziosoaren artean?',
+        a: 'Adostasunezkoan, biek adosten dituzte neurriak (seme-alabak, etxebizitza, pentsioak eta ondasunak) epaileak onartzen duen hitzarmen arautzaile batean; adingabeko seme-alabarik ez badago, notarioaren aurrean ere egin daiteke. Kontentziosoan ez dago akordiorik, eta epaileak erabakitzen du.',
+      },
+      {
+        q: 'Zertarako balio du bitartekaritzak?',
+        a: 'Bikoteak, hirugarren neutral batekin, bere akordioak lor ditzan ahalbidetzen du. Azkarragoa eta merkeagoa izan ohi da, eta harremana babesten du, oso garrantzitsua seme-alabak daudenean. Akordiorik ez badago, bide judiziala beti dago.',
+      },
+      {
+        q: 'Nola erabakitzen da seme-alaben zaintza?',
+        a: 'Zaintza guraso bati edo biei (partekatua) eman dakieke. Beti adingabearen interesa kontuan hartuta erabakitzen da, eta hitzarmen arautzailean adostu daiteke edo epaileak ebatzi.',
+      },
+      {
+        q: 'Zer gertatzen da jaraunspen batekin testamenturik ez badago?',
+        a: 'Legeak zehazten du nork heredatzen duen eta zein ordenatan, oinordeko-deklarazio baten bidez. Euskadin, gainera, Euskal Zuzenbide Zibila aplikatzen da, bere arau propioekin. Komeni da kasu bakoitza aztertzea onartu edo banatu aurretik.',
+      },
+      {
+        q: 'Zer egin familian edo bikotean indarkeria jasaten badut?',
+        a: 'Arriskuan bazaude, deitu 112ra. 016 zenbakiak genero-indarkeriaren biktimak artatzen ditu 24 orduz, eta ez du arrastorik uzten fakturan. Abokatu batek salaketari eta babes-neurriei buruz aholkatu zaitzake.',
+      },
+      {
+        q: 'Zein hizkuntzatan ematen duzue arreta?',
+        a: 'Gaztelaniaz, euskaraz eta ingelesez.',
+      },
+    ],
   },
 
   film: { label: 'Silvia · Tolosa · Zuzenbidea' },
