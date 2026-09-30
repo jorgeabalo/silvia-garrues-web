@@ -5,12 +5,10 @@ import { Photo } from '../components/Photo'
 import { PhotoMarquee } from '../components/PhotoMarquee'
 import { RevealText } from '../components/Rich'
 import { SectionTitle } from '../components/SectionTitle'
-import { InternationalSection } from '../sections/InternationalSection'
-import { RootsSection } from '../sections/RootsSection'
 import { CtaSection } from '../sections/CtaSection'
 import type { PhotoKey } from '../content/photos'
 
-const chapterPhotos: PhotoKey[] = ['silviaEntrance', 'meeting1', 'silviaStreet', 'officeWaiting']
+const chapterPhotos: PhotoKey[] = ['silviaEntrance', 'meeting3', 'officeWaiting']
 const gallery: { key: PhotoKey; cls: string; ratio: number }[] = [
   { key: 'silviaPortrait', cls: 'col-span-6 lg:col-span-4', ratio: 4 / 5 },
   { key: 'event', cls: 'col-span-6 lg:col-span-5 lg:mt-20', ratio: 4 / 3 },
@@ -108,10 +106,6 @@ export default function SilviaPage() {
       </section>
 
       <PhotoMarquee label={t.film.label} />
-      <div className="h-16" />
-      <RootsSection />
-      <div className="h-24" />
-      <InternationalSection />
       <CtaSection />
     </>
   )

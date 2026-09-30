@@ -7,13 +7,16 @@ import { Button } from '../components/Button'
 import { SectionTitle } from '../components/SectionTitle'
 import { UlpianoFeature } from './UlpianoFeature'
 
+/** Prioriza los temas de sus especialidades */
+const rank = (a: { area: { es: string } }) => ({ Familia: 4, Mediación: 3, Sucesiones: 2, Penal: 1 } as Record<string, number>)[a.area.es] ?? 0
+
 export function ArticlesSection() {
   const { t, lang, to } = useI18n()
   const a = t.articles
   // Prioriza textos escritos en el idioma de la página y con extracto original disponible
   const picks = [...articles]
     .filter((x) => x.photo)
-    .sort((x, y) => Number(y.lang === lang) - Number(x.lang === lang) || Number(!!y.excerpt) - Number(!!x.excerpt))
+    .sort((x, y) => rank(y) - rank(x) || Number(y.lang === lang) - Number(x.lang === lang) || Number(!!y.excerpt) - Number(!!x.excerpt))
     .slice(0, 3)
   return (
     <section id="articulos" className="py-24 sm:py-36">

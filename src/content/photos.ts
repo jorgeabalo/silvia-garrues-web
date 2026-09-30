@@ -50,6 +50,7 @@ const c = (id: string, file: string, w: number, h: number, es: string, eu: strin
 
 export const photos = {
   // — Identidad
+  adosLogo: g('adosLogo', '870ea8_c429dce1ddc44970987090c2cf8e3b6f~mv2.png', 1181, 723, 'Logotipo de ADOS Abokatuak eta Bitartekariak', 'ADOS Abokatuak eta Bitartekariak logotipoa'),
   logo: g('logo', '870ea8_bcb0f3ec6f634401a14d7eaf0d323264~mv2.png', 1000, 1000, 'Logotipo de Silvia Garrues Remírez', 'Silvia Garrues Remírezen logotipoa'),
   logoSignature: g('logoSignature', '870ea8_fee71f7f3bb44bcaa7a06c6fbba5fd7c~mv2.png', 740, 448, 'Logotipo y firma de Silvia Garrues Remírez', 'Silvia Garrues Remírezen logotipoa eta sinadura'),
   ulpiano: g('ulpiano', '870ea8_5abb47fa452e4ade88f0dc52994f7fa7~mv2.jpg', 1200, 1200, 'Busto clásico de Ulpiano, jurista romano', 'Ulpiano jurista erromatarraren bustoa', '50% 30%'),
@@ -90,19 +91,17 @@ export type PhotoKey = keyof typeof photos
 /** Secuencia de la película fotográfica (marquee). Alterna Silvia · Tolosa · despacho. */
 export const marqueeSequence: PhotoKey[] = [
   'silviaPortrait',
-  'tolosaOria',
   'meeting1',
   'officeWaiting',
   'silviaRedFolder',
-  'tolosaChurch',
-  'courthouse',
-  'event',
-  'silviaSeated',
-  'tolosaTown',
   'meeting2',
-  'officeDoor',
-  'silviaStreet',
-  'tolosaRiver',
+  'officeRoom',
+  'silviaSeated',
+  'event',
+  'officeDesk',
+  'silviaEntrance',
   'meeting4',
+  'officeDoor',
   'withColleague',
+  'silviaStanding',
 ]

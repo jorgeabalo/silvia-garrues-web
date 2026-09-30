@@ -7,6 +7,8 @@ import type { PhotoKey } from './photos'
  */
 export interface PracticeArea {
   slug: string
+  /** main = especialidades de Silvia (divorcios, familia, herencias, penal); other = resto de áreas */
+  tier: 'main' | 'other'
   featured?: boolean
   photo?: PhotoKey
   name: Record<Lang, string>
@@ -15,10 +17,41 @@ export interface PracticeArea {
 }
 
 export const practiceAreas: PracticeArea[] = [
-  {
-    slug: 'familia',
+{
+    slug: 'divorcios',
+    tier: 'main',
     featured: true,
     photo: 'meeting2',
+    name: { es: 'Divorcios y separaciones', eu: 'Dibortzioak eta banantzeak' },
+    short: {
+      es: 'Su especialidad. Hijos, casa, bienes y acuerdos: te acompaña de principio a fin, buscando el acuerdo y siempre firme en mantener tus derechos.',
+      eu: 'Bere espezialitatea. Seme-alabak, etxea, ondasunak eta akordioak: hasieratik amaierara lagunduko dizu, akordioa bilatuz eta zure eskubideak mantentzeko beti irmo.',
+    },
+    items: {
+      es: [
+        'Divorcios o separaciones',
+        'Custodia de hijos',
+        'Establecimiento de medidas paternofiliales',
+        'Régimen económico matrimonial',
+        'Liquidación de bienes gananciales',
+        'Revisión de acuerdos',
+        'Mediación',
+      ],
+      eu: [
+        'Dibortzioak edo banantzeak',
+        'Seme-alaben zaintza',
+        'Guraso eta seme-alaben arteko neurriak ezartzea',
+        'Ezkontzako ondasun-araubidea',
+        'Irabazpidezko ondasunen likidazioa',
+        'Akordioen berrikuspena',
+        'Bitartekaritza',
+      ],
+    },
+  },
+  {
+    slug: 'familia',
+    tier: 'main',
+    photo: 'silviaSeated',
     name: { es: 'Derecho de familia', eu: 'Familia-zuzenbidea' },
     short: {
       es: 'Divorcios, separaciones, custodia de hijos, acuerdos prematrimoniales y revisión de acuerdos. Con cercanía y con firmeza.',
@@ -48,21 +81,9 @@ export const practiceAreas: PracticeArea[] = [
     },
   },
   {
-    slug: 'mediacion',
-    featured: true,
-    photo: 'meeting1',
-    name: { es: 'Mediación', eu: 'Bitartekaritza' },
-    short: {
-      es: 'Un mecanismo reconocido para resolver conflictos mediante el diálogo, la escucha y la proposición. Más rápido, menos gravoso.',
-      eu: 'Gatazkak elkarrizketaren, entzutearen eta proposamenaren bidez konpontzeko mekanismo aitortua. Azkarragoa, merkeagoa.',
-    },
-    items: {
-      es: ['Mediación familiar', 'Comunicación No Violenta', 'Círculos restaurativos', 'Negociación colaborativa'],
-      eu: ['Familia-bitartekaritza', 'Komunikazio Ez-Bortitza', 'Zirkulu leheneratzaileak', 'Negoziazio kolaboratiboa'],
-    },
-  },
-  {
     slug: 'herencias',
+    tier: 'main',
+    photo: 'officeDesk',
     name: { es: 'Herencias y sucesiones', eu: 'Jaraunspenak eta oinordetzak' },
     short: {
       es: 'Asesoramiento jurídico y fiscal para resolver tu herencia de forma rápida y económica, desde el testamento hasta el reparto.',
@@ -74,37 +95,8 @@ export const practiceAreas: PracticeArea[] = [
     },
   },
   {
-    slug: 'civil',
-    name: { es: 'Derecho civil', eu: 'Zuzenbide zibila' },
-    short: {
-      es: 'Las relaciones entre particulares y sus patrimonios: reclamaciones, comunidades de vecinos, responsabilidad civil y más.',
-      eu: 'Partikularren arteko harremanak eta haien ondareak: erreklamazioak, auzokide-erkidegoak, erantzukizun zibila eta gehiago.',
-    },
-    items: {
-      es: [
-        'Reclamaciones de cantidad',
-        'Comunidades de vecinos',
-        'Incapacitaciones',
-        'Tutelas y curatelas',
-        'Responsabilidad civil',
-        'Propiedad horizontal',
-        'Procedimientos judiciales',
-        'Desahucio y eliminación de cláusulas suelo',
-      ],
-      eu: [
-        'Kopuru-erreklamazioak',
-        'Auzokide-erkidegoak',
-        'Ezgaitzeak',
-        'Tutoretzak eta kuradoretzak',
-        'Erantzukizun zibila',
-        'Jabetza horizontala',
-        'Prozedura judizialak',
-        'Etxegabetzeak eta lurzoru-klausulen ezabaketa',
-      ],
-    },
-  },
-  {
     slug: 'penal',
+    tier: 'main',
     name: { es: 'Derecho penal', eu: 'Zigor-zuzenbidea' },
     short: {
       es: 'Asesoramiento y defensa legal en derecho penal y penal económico, incluido el compliance penal de la empresa.',
@@ -136,8 +128,53 @@ export const practiceAreas: PracticeArea[] = [
     },
   },
   {
+    slug: 'mediacion',
+    tier: 'other',
+    photo: 'meeting1',
+    name: { es: 'Mediación', eu: 'Bitartekaritza' },
+    short: {
+      es: 'Un mecanismo reconocido para resolver conflictos mediante el diálogo, la escucha y la proposición. Más rápido, menos gravoso.',
+      eu: 'Gatazkak elkarrizketaren, entzutearen eta proposamenaren bidez konpontzeko mekanismo aitortua. Azkarragoa, merkeagoa.',
+    },
+    items: {
+      es: ['Mediación familiar', 'Comunicación No Violenta', 'Círculos restaurativos', 'Negociación colaborativa'],
+      eu: ['Familia-bitartekaritza', 'Komunikazio Ez-Bortitza', 'Zirkulu leheneratzaileak', 'Negoziazio kolaboratiboa'],
+    },
+  },
+  {
+    slug: 'civil',
+    tier: 'other',
+    name: { es: 'Derecho civil', eu: 'Zuzenbide zibila' },
+    short: {
+      es: 'Las relaciones entre particulares y sus patrimonios: reclamaciones, comunidades de vecinos, responsabilidad civil y más.',
+      eu: 'Partikularren arteko harremanak eta haien ondareak: erreklamazioak, auzokide-erkidegoak, erantzukizun zibila eta gehiago.',
+    },
+    items: {
+      es: [
+        'Reclamaciones de cantidad',
+        'Comunidades de vecinos',
+        'Incapacitaciones',
+        'Tutelas y curatelas',
+        'Responsabilidad civil',
+        'Propiedad horizontal',
+        'Procedimientos judiciales',
+        'Desahucio y eliminación de cláusulas suelo',
+      ],
+      eu: [
+        'Kopuru-erreklamazioak',
+        'Auzokide-erkidegoak',
+        'Ezgaitzeak',
+        'Tutoretzak eta kuradoretzak',
+        'Erantzukizun zibila',
+        'Jabetza horizontala',
+        'Prozedura judizialak',
+        'Etxegabetzeak eta lurzoru-klausulen ezabaketa',
+      ],
+    },
+  },
+  {
     slug: 'extranjeria',
-    photo: 'silviaStreet',
+    tier: 'other',
     name: { es: 'Extranjería', eu: 'Atzerritartasuna' },
     short: {
       es: 'Documentación, reagrupación familiar, nacionalidad, asilo y asesoría para obtener visados a los Estados Unidos.',
@@ -164,6 +201,7 @@ export const practiceAreas: PracticeArea[] = [
   },
   {
     slug: 'laboral',
+    tier: 'other',
     name: { es: 'Laboral y Seguridad Social', eu: 'Lana eta Gizarte Segurantza' },
     short: {
       es: 'El vínculo entre empresa y trabajador, y las garantías de la Seguridad Social ante determinados riesgos.',
@@ -176,6 +214,7 @@ export const practiceAreas: PracticeArea[] = [
   },
   {
     slug: 'seguros',
+    tier: 'other',
     name: { es: 'Seguros y tráfico', eu: 'Aseguruak eta trafikoa' },
     short: {
       es: 'Accidentes de tráfico, pólizas, siniestros y reclamaciones frente a las aseguradoras.',

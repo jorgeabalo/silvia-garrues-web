@@ -61,53 +61,81 @@ const eu: Dict = {
   },
 
   hero: {
-    role: 'Abokatua',
-    credential: 'Gipuzkoako eta Madrilgo elkargokidea · Ibilbidea Estatu Batuetan, Espainian eta Euskal Herrian',
-    title: 'Zuzenbidea, *esperientzia* eta *garrantzitsua dena defendatzeko* modu oso pertsonala.',
+    role: 'Abokatua eta bitartekaria',
+    credential: 'Dibortzioak · Familia · Jaraunspenak eta oinordetzak · Zigor-zuzenbidea',
+    title: 'Familia bat banatzen denean, *norbaitek jarri behar du ordena.*',
     paragraphs: [
-      'Silvia Garrues Remírez ADOSen sortzailea da: diziplina anitzeko bulego moderno eta humanista, 15 urtetik gorako esperientzia duena Estatu Batuetan, Espainian eta Euskal Herrian.',
-      'Kasu bakoitza xehetasunez aztertzen du. Prozesu judizial batzuk denboran luza daitezkeenez, ahal den guztietan bitartekaritzara jotzen du: aukera eraginkorra, merkeagoa eta azkarragoa.',
-      'Euskal Herri osoan, Espainiako Estatuan eta nazioartean ematen du arreta. Gaztelaniaz, euskaraz eta ingelesez.',
+      'Silvia Garrues Remírez familia-zuzenbidean aditua da: dibortzioak, banantzeak, seme-alaben zaintza, ezkontza aurreko akordioak eta akordioen aldaketak. Jaraunspenak, oinordetzak eta zigor-arloko gaiak ere eramaten ditu.',
+      'Lehenik, elkarrizketa: bitartekaritza aukera eraginkorra, merkeagoa eta azkarragoa da. Akordiorik ez badago, epaiketara, zure eskubideak mantentzeko beti irmo.',
+      '15 urtetik gorako esperientzia. Gaztelaniaz, euskaraz eta ingelesez.',
     ],
     ctaPrimary: 'Kontsultatu zure kasua',
-    ctaSecondary: 'Ezagutu bulegoa',
-    photoCaption: 'Silvia Garrues Remírez Tolosako bere bulegoan',
+    ctaSecondary: 'Ezagutu Silvia',
+    photoCaption: 'Silvia Garrues Remírez bere bulegoan',
+  },
+
+  intro: {
+    label: 'Sarrerako filma',
+    scenes: [
+      'Proiektu komun bat.',
+      'Bideak banatzen diren arte.',
+      'Etxea, autoa, seme-alabak… dena da eztabaidagai.',
+      'Orduan iristen da lasaitasuna.',
+    ],
+    finale: 'Silviak gauzak argi eta garbi jartzen ditu.',
+    skip: 'Saltatu',
+    replay: 'Berriro ikusi',
   },
 
   facts: [
-    { value: '15+', label: 'urteko esperientzia AEBn, Espainian eta Euskal Herrian' },
-    { value: '8', label: 'urte Ipar Amerikako sistema judizialean' },
+    { value: '15+', label: 'urteko esperientzia familia-zuzenbidean eta bitartekaritzan' },
     { value: '2', label: 'abokatu-elkargo: Gipuzkoa eta Madril' },
     { value: '3', label: 'hizkuntza: gaztelania, euskara eta ingelesa' },
   ],
+
+  specialties: {
+    kicker: 'Espezialitateak',
+    title: 'Dibortzioak, familia, jaraunspenak. *Eta behar denean, zigor-arloa.*',
+    intro: 'Zuzenbidearen edozein adarretan aholkatzen du, baina bere lana gehien jokoan dagoen lekuan biltzen da: familian.',
+    others: 'Honetan ere aholkatzen du:',
+  },
+
+  divorce: {
+    kicker: 'Dibortzioak',
+    title: 'Banantzen *ari zara?*',
+    intro: 'Dibortzioa ez da paper bat bakarrik. Zure seme-alabak, zure etxea eta zure lasaitasuna dira. Silviak pieza bakoitza ordenatzen lagunduko dizu, lasai eta garrantzitsuan amore eman gabe.',
+    stakes: [
+      { title: 'Seme-alabak', text: 'Seme-alaben zaintza eta guraso eta seme-alaben arteko neurriak, haien ongizatea kontuan hartuta.' },
+      { title: 'Etxea eta ondasunak', text: 'Ezkontzako ondasun-araubidea eta irabazpidezko ondasunen likidazioa.' },
+      { title: 'Akordioak', text: 'Ezkontza edo elkarbizitza aurreko akordioak, eta akordioen berrikuspena bizitza aldatzen denean.' },
+    ],
+    pathTitle: 'Bidea',
+    quote: 'Gure jarrera profesionalak puntu komunak aurkitzen lagunduko dizu, egoerarik zailenetan ere, baina beti izango gara irmoak zure eskubideak mantentzen.',
+    quoteSource: 'ADOS · Abokatuak eta Bitartekariak',
+  },
 
   film: { label: 'Silvia · Tolosa · Zuzenbidea' },
 
   silvia: {
     kicker: 'Silvia',
-    title: 'Tolosan *hasi eta Tolosara itzultzen* den ibilbidea.',
+    title: 'Gatazkaren erdian *behar duzun lasaitasuna.*',
     lead:
       'Silvia Gipuzkoako eta Madrilgo abokatu-elkargoetako kidea da. Nazioarteko ibilbidea du sistema judizial klasikoan, eta ezaguna da, ahal den guztietan, bitartekaritza gatazkak konpontzeko bide alternatibo gisa erabiltzeagatik.',
     chapters: [
       {
         place: 'Prestakuntza',
-        title: 'UNED eta Rey Juan Carlos Unibertsitatea',
+        title: 'Bitartekaritzan aditua',
         text: 'Urrutiko Hezkuntzako Unibertsitate Nazionalean (UNED) tituludun, hainbat titulu ditu, besteak beste Rey Juan Carlos Unibertsitateko Bitartekaritzan Aditu titulua.',
       },
       {
-        place: 'Houston, Texas',
-        title: 'University of Houston Law Center',
-        text: 'Bere esperientziaren zati handi bat University of Houston Law Centerren egindako ikasketei zor die. 8 urtez aritu zen Ipar Amerikako sistema judizialean, Busby & Associates Law Firm bulegoarekin, Texasen.',
+        place: 'Esperientzia',
+        title: '15 urte baino gehiago',
+        text: 'Ibilbide horretan, 8 urte Ipar Amerikako sistema judizialean eta jarduna Madrilen eta Gipuzkoan. Auzia ebaztera eta gatazka konpontzera bideratutako bulegoa.',
       },
       {
-        place: 'Madril',
-        title: 'Espainiako sistema judiziala',
-        text: 'Estatu Batuetatik itzultzean, Madrilen aritu zen, Espainiako sistema judizialean.',
-      },
-      {
-        place: 'Tolosa',
-        title: 'ADOS, bere bulegoa',
-        text: 'Jaioterrira itzuli zen bere ezagutza guztiak bere bulegoan erabiltzeko: auzia ebaztera eta gatazka konpontzera bideratutako bulegoa.',
+        place: 'Elkargokide',
+        title: 'Gipuzkoa eta Madril',
+        text: 'Gipuzkoako eta Madrilgo abokatu-elkargoetako kidea. Gaztelaniaz, euskaraz eta ingelesez ematen du arreta.',
       },
     ],
     quote: 'Bitartekaritzaren bidea agortzea garrantzitsua iruditzen zait.',

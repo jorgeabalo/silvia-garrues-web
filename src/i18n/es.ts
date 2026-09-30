@@ -59,53 +59,81 @@ const es = {
   },
 
   hero: {
-    role: 'Abogada',
-    credential: 'Colegiada en Gipuzkoa y Madrid · Trayectoria en Estados Unidos, España y el País Vasco',
-    title: 'Derecho, *experiencia* y una forma muy personal de *defender lo que importa.*',
+    role: 'Abogada y mediadora',
+    credential: 'Divorcios · Familia · Herencias y sucesiones · Penal',
+    title: 'Cuando una familia se separa, *alguien tiene que poner orden.*',
     paragraphs: [
-      'Silvia Garrues Remírez es la fundadora de ADOS, un despacho multidisciplinar, moderno y humanista con más de 15 años de experiencia en Estados Unidos, España y el País Vasco.',
-      'Estudia cada caso al detalle. Y como algunos procesos judiciales se pueden dilatar en el tiempo, recurre a la mediación siempre que es posible: una alternativa eficaz, menos gravosa y más rápida.',
-      'Atiende en todo el País Vasco, en el Estado español y a nivel internacional. En castellano, euskera e inglés.',
+      'Silvia Garrues Remírez es experta en derecho de familia: divorcios, separaciones, custodia de hijos, acuerdos prematrimoniales y cambios en los acuerdos. También lleva herencias y sucesiones y asuntos penales.',
+      'Primero, el diálogo: la mediación es una alternativa eficaz, menos gravosa y más rápida. Si no hay acuerdo, a juicio, siempre firme en mantener tus derechos.',
+      'Más de 15 años de experiencia. En castellano, euskera e inglés.',
     ],
     ctaPrimary: 'Consulta tu caso',
-    ctaSecondary: 'Conoce el despacho',
-    photoCaption: 'Silvia Garrues Remírez en su despacho de Tolosa',
+    ctaSecondary: 'Conoce a Silvia',
+    photoCaption: 'Silvia Garrues Remírez en su despacho',
+  },
+
+  intro: {
+    label: 'Película introductoria',
+    scenes: [
+      'Un proyecto en común.',
+      'Hasta que los caminos se separan.',
+      'La casa, el coche, los hijos… todo se disputa.',
+      'Entonces llega la calma.',
+    ],
+    finale: 'Silvia pone los puntos sobre las íes.',
+    skip: 'Saltar',
+    replay: 'Ver de nuevo',
   },
 
   facts: [
-    { value: '15+', label: 'años de experiencia en EE. UU., España y el País Vasco' },
-    { value: '8', label: 'años en el sistema judicial norteamericano' },
-    { value: '2', label: 'colegios de abogados: Gipuzkoa y Madrid' },
+    { value: '15+', label: 'años de experiencia en derecho de familia y mediación' },
+    { value: '2', label: 'colegios de la abogacía: Gipuzkoa y Madrid' },
     { value: '3', label: 'idiomas: castellano, euskera e inglés' },
   ],
+
+  specialties: {
+    kicker: 'Especialidades',
+    title: 'Divorcios, familia, herencias. *Y cuando hace falta, penal.*',
+    intro: 'Asesora en cualquier rama del Derecho, pero su trabajo se concentra donde más está en juego: la familia.',
+    others: 'También asesora en',
+  },
+
+  divorce: {
+    kicker: 'Divorcios',
+    title: '¿Te estás *separando?*',
+    intro: 'Un divorcio no es solo un papel. Son tus hijos, tu casa y tu tranquilidad. Silvia te ayuda a ordenar cada pieza, con calma y sin ceder en lo importante.',
+    stakes: [
+      { title: 'Los hijos', text: 'Custodia de hijos y medidas paternofiliales pensadas para su bienestar.' },
+      { title: 'La casa y los bienes', text: 'Régimen económico matrimonial y liquidación de bienes gananciales.' },
+      { title: 'Los acuerdos', text: 'Acuerdos previos al matrimonio o convivencia, y revisión de acuerdos cuando la vida cambia.' },
+    ],
+    pathTitle: 'El camino',
+    quote: 'Nuestra actitud profesional te ayudará a encontrar puntos en común, incluso en las situaciones más complicadas, pero siempre seremos firmes en mantener tus derechos.',
+    quoteSource: 'ADOS · Abokatuak eta Bitartekariak',
+  },
 
   film: { label: 'Silvia · Tolosa · Derecho' },
 
   silvia: {
     kicker: 'Silvia',
-    title: 'Una trayectoria que *empieza y vuelve* a Tolosa.',
+    title: 'La calma que necesitas *en medio del conflicto.*',
     lead:
       'Silvia es abogada colegiada en el Colegio de Abogados de Gipuzkoa y en el de Madrid. Tiene trayectoria internacional en el sistema judicial clásico y es conocida por utilizar la mediación como vía alternativa de resolución de conflictos, siempre que es posible.',
     chapters: [
       {
         place: 'Formación',
-        title: 'UNED y Universidad Rey Juan Carlos',
+        title: 'Experta en Mediación',
         text: 'Titulada por la Universidad Nacional de Educación a Distancia, cuenta con múltiples títulos, entre ellos el de Experto en Mediación de la Universidad Rey Juan Carlos.',
       },
       {
-        place: 'Houston, Texas',
-        title: 'University of Houston Law Center',
-        text: 'Gran parte de su experiencia se debe a sus estudios en la University of Houston Law Center. Durante 8 años trabajó en el sistema judicial norteamericano con Busby & Associates Law Firm, en Texas.',
+        place: 'Experiencia',
+        title: 'Más de 15 años',
+        text: 'Una trayectoria que incluye 8 años en el sistema judicial norteamericano y el ejercicio en Madrid y en Gipuzkoa. Un despacho enfocado en resolver el litigio y solucionar el conflicto.',
       },
       {
-        place: 'Madrid',
-        title: 'El sistema judicial español',
-        text: 'Al regresar de Estados Unidos ejerce en Madrid, dentro del sistema judicial español.',
-      },
-      {
-        place: 'Tolosa',
-        title: 'ADOS, su propio despacho',
-        text: 'Retorna a su lugar de origen para emplear todos sus conocimientos en su despacho, enfocado en resolver el litigio y solucionar el conflicto.',
+        place: 'Colegiada',
+        title: 'Gipuzkoa y Madrid',
+        text: 'Abogada colegiada en el Colegio de Abogados de Gipuzkoa y en el de Madrid. Atiende en castellano, euskera e inglés.',
       },
     ],
     quote: 'Me parece importante agotar la vía de la mediación.',

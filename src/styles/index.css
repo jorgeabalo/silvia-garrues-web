@@ -24,11 +24,11 @@
     font-feature-settings: 'ss01', 'cv11';
   }
   ::selection {
-    background: #1e4fd6;
+    background: #2a5bc4;
     color: #fff;
   }
   :focus-visible {
-    outline: 2px solid #1e4fd6;
+    outline: 2px solid #2a5bc4;
     outline-offset: 3px;
     border-radius: 6px;
   }
@@ -70,7 +70,7 @@
     -webkit-backdrop-filter: saturate(1.4) blur(18px);
   }
   .photo-skeleton {
-    background: linear-gradient(120deg, #e7edf5 0%, #f3f6fa 45%, #e3e9f2 100%);
+    background: linear-gradient(120deg, #efe6da 0%, #f8f2ea 45%, #e9e2d8 100%);
   }
 }
 
@@ -176,4 +176,96 @@
   .marquee-track { animation: none !important; }
   .marquee { overflow-x: auto; scroll-snap-type: x mandatory; }
   .route-line, .route-line-v { transform: none; }
+}
+
+/* ——— Tratamiento fotográfico unificado: cálido, sereno, actual ———
+   Suaviza contrastes duros, baja la saturación, levanta sombras y da una
+   luz cálida común a fotos de épocas distintas. */
+.photo-grade img {
+  filter: saturate(0.8) contrast(0.93) brightness(1.06) sepia(0.07);
+}
+.photo-grade::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 90% at 30% 10%, rgba(255, 240, 220, 0.22), transparent 60%),
+    linear-gradient(180deg, rgba(255, 248, 238, 0.06), rgba(21, 49, 95, 0.12));
+  mix-blend-mode: soft-light;
+}
+
+/* ——— Película introductoria (16 s) ——— */
+.intro { --t: 16s; }
+.intro svg g, .intro svg path, .intro svg rect { transform-box: fill-box; }
+.intro .i-a, .intro .i-b, .intro .i-kid, .intro .i-house, .intro .i-car,
+.intro .i-a-lean, .intro .i-b-lean, .intro .i-kid-shake, .intro .i-house-shake, .intro .i-car-shake,
+.intro .i-heart, .intro .i-glow, .intro .i-crack, .intro .i-line, .intro .i-rope, .intro .i-rope-dash,
+.intro .i-silvia, .intro .i-cap, .intro .i-cta {
+  animation-duration: var(--t);
+  animation-timing-function: cubic-bezier(0.45, 0, 0.25, 1);
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+}
+.intro .i-a-lean, .intro .i-b-lean, .intro .i-house, .intro .i-car { transform-origin: 50% 100%; }
+
+.intro .i-a { animation-name: i-a; }
+@keyframes i-a { 0%, 16% { translate: 0 0; } 30%, 38% { translate: -120px 0; } 46%, 60% { translate: -190px 0; } 78%, 100% { translate: -100px 0; } }
+.intro .i-b { animation-name: i-b; }
+@keyframes i-b { 0%, 16% { translate: 0 0; } 30%, 38% { translate: 120px 0; } 46%, 60% { translate: 190px 0; } 78%, 100% { translate: 100px 0; } }
+.intro .i-a-lean { animation-name: i-a-lean; }
+@keyframes i-a-lean { 0%, 40% { rotate: 0deg; } 45%, 58% { rotate: -11deg; } 66%, 100% { rotate: 0deg; } }
+.intro .i-b-lean { animation-name: i-b-lean; }
+@keyframes i-b-lean { 0%, 40% { rotate: 0deg; } 45%, 58% { rotate: 11deg; } 66%, 100% { rotate: 0deg; } }
+
+.intro .i-heart { animation-name: i-heart; transform-origin: 50% 50%; }
+@keyframes i-heart { 0% { opacity: 0; scale: 0.5; } 5%, 13% { opacity: 1; scale: 1; } 9% { scale: 1.12; } 20%, 100% { opacity: 0; scale: 0.6; } }
+
+.intro .i-kid-shake { animation-name: i-kid-shake; transform-origin: 50% 100%; }
+@keyframes i-kid-shake {
+  0%, 22% { translate: 0 0; rotate: 0deg; } 26% { rotate: -6deg; } 30% { rotate: 6deg; } 34%, 42% { rotate: 0deg; translate: 0 0; }
+  45% { translate: -26px 0; } 48% { translate: 26px 0; } 51% { translate: -26px 0; } 54% { translate: 26px 0; } 57% { translate: -20px 0; } 60% { translate: 14px 0; }
+  66%, 100% { translate: 0 0; rotate: 0deg; }
+}
+.intro .i-house { animation-name: i-house; }
+@keyframes i-house { 0%, 18% { translate: 0 0; scale: 1; } 30%, 38% { translate: -62px 0; scale: 0.9; } 46%, 60% { translate: 110px 0; scale: 0.72; } 78%, 100% { translate: 150px 0; scale: 0.58; } }
+.intro .i-car { animation-name: i-car; }
+@keyframes i-car { 0%, 18% { translate: 0 0; scale: 1; } 30%, 38% { translate: 84px 0; scale: 0.9; } 46%, 60% { translate: -110px 0; scale: 0.72; } 78%, 100% { translate: -142px 0; scale: 0.58; } }
+.intro .i-house-shake { animation-name: i-shake-a; }
+.intro .i-car-shake { animation-name: i-shake-b; }
+@keyframes i-shake-a { 0%, 44% { translate: 0 0; } 47% { translate: 22px 0; } 50% { translate: -22px 0; } 53% { translate: 22px 0; } 56% { translate: -18px 0; } 59% { translate: 10px 0; } 64%, 100% { translate: 0 0; } }
+@keyframes i-shake-b { 0%, 44% { translate: 0 0; } 47% { translate: -22px 0; } 50% { translate: 22px 0; } 53% { translate: -22px 0; } 56% { translate: 18px 0; } 59% { translate: -10px 0; } 64%, 100% { translate: 0 0; } }
+
+.intro .i-rope { animation-name: i-rope; }
+@keyframes i-rope { 0%, 40% { opacity: 0; } 45%, 60% { opacity: 1; } 66%, 100% { opacity: 0; } }
+.intro .i-rope-dash { animation-name: i-rope-dash; }
+@keyframes i-rope-dash { 0% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 340; } }
+
+.intro .i-crack { stroke-dasharray: 1; animation-name: i-crack; }
+@keyframes i-crack { 0%, 22% { stroke-dashoffset: 1; opacity: 1; } 32%, 62% { stroke-dashoffset: 0; opacity: 1; } 72%, 100% { stroke-dashoffset: 0; opacity: 0; } }
+.intro .i-line { stroke-dasharray: 1; animation-name: i-line; }
+@keyframes i-line { 0%, 70% { stroke-dashoffset: 1; } 86%, 100% { stroke-dashoffset: 0; } }
+.intro .i-glow { animation-name: i-glow; }
+@keyframes i-glow { 0%, 62% { opacity: 0; } 78%, 100% { opacity: 1; } }
+.intro .i-silvia { animation-name: i-silvia; }
+@keyframes i-silvia { 0%, 66% { opacity: 0; scale: 0.82; } 78%, 100% { opacity: 1; scale: 1; } }
+
+.intro .i-cap { opacity: 0; }
+.intro .i-cap-1 { animation-name: i-cap-1; }
+.intro .i-cap-2 { animation-name: i-cap-2; }
+.intro .i-cap-3 { animation-name: i-cap-3; }
+.intro .i-cap-4 { animation-name: i-cap-4; }
+.intro .i-cap-final { animation-name: i-cap-final; }
+@keyframes i-cap-1 { 0%, 2% { opacity: 0; translate: 0 10px; } 6%, 15% { opacity: 1; translate: 0 0; } 18%, 100% { opacity: 0; translate: 0 -8px; } }
+@keyframes i-cap-2 { 0%, 20% { opacity: 0; translate: 0 10px; } 24%, 35% { opacity: 1; translate: 0 0; } 38%, 100% { opacity: 0; translate: 0 -8px; } }
+@keyframes i-cap-3 { 0%, 40% { opacity: 0; translate: 0 10px; } 44%, 58% { opacity: 1; translate: 0 0; } 61%, 100% { opacity: 0; translate: 0 -8px; } }
+@keyframes i-cap-4 { 0%, 63% { opacity: 0; translate: 0 10px; } 67%, 74% { opacity: 1; translate: 0 0; } 77%, 100% { opacity: 0; translate: 0 -8px; } }
+@keyframes i-cap-final { 0%, 78% { opacity: 0; translate: 0 12px; } 84%, 100% { opacity: 1; translate: 0 0; } }
+.intro .i-cta { animation-name: i-cta; }
+@keyframes i-cta { 0%, 86% { opacity: 0; translate: 0 12px; } 94%, 100% { opacity: 1; translate: 0 0; } }
+
+/* Saltar: todo salta al fotograma final */
+.intro-skip * { animation-delay: calc(-1 * var(--t)) !important; }
+@media (prefers-reduced-motion: reduce) {
+  .intro * { animation-duration: 1ms !important; animation-delay: 0s !important; }
 }

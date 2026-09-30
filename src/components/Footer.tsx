@@ -24,7 +24,7 @@ export function Footer() {
       <div className="page-x relative">
         <div className="flex flex-col gap-14 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <Logo size={56} />
+            <Logo height={52} tile />
             <p className="mt-6 text-[2.4rem] font-medium leading-none tracking-[-0.04em] sm:text-6xl">
               Silvia Garrues <span className="serif-accent text-haze">Remírez</span>
             </p>

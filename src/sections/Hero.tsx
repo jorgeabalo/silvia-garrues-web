@@ -1,7 +1,6 @@
 import { useI18n } from '../i18n'
 import { AnimatedSection } from '../components/AnimatedSection'
 import { Button } from '../components/Button'
-import { Logo } from '../components/Logo'
 import { Photo } from '../components/Photo'
 import { RevealText } from '../components/Rich'
 
@@ -9,24 +8,21 @@ export function Hero() {
   const { t, to } = useI18n()
   const h = t.hero
   return (
-    <AnimatedSection className="relative overflow-hidden pb-10 pt-24 sm:pt-32" threshold={0}>
+    <AnimatedSection id="inicio" className="relative scroll-mt-4 overflow-hidden pb-10 pt-20 sm:pt-28">
       {/* Luz azul muy sutil */}
       <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[720px] bg-[radial-gradient(60%_55%_at_50%_0%,rgba(30,79,214,.13),transparent_70%)]" />
       <div aria-hidden className="pointer-events-none absolute -left-40 top-80 h-96 w-96 rounded-full bg-atlantic/10 blur-[110px]" />
 
       <div className="page-x relative text-center">
-        <div className="reveal flex justify-center">
-          <Logo size={64} className="shadow-soft" />
-        </div>
-        <h1 className="reveal d1 mt-7 text-[15px] font-medium tracking-[-0.01em] text-ink sm:text-[17px]">
+        <h1 className="reveal d1 text-[15px] font-medium tracking-[-0.01em] text-ink sm:text-[17px]">
           Silvia Garrues Remírez
           <span className="mx-2 text-ink/25">—</span>
           <span className="serif-accent text-[1.2em] text-atlantic">{h.role}</span>
         </h1>
         <p className="reveal d2 mx-auto mt-3 max-w-xl text-[12.5px] uppercase leading-relaxed tracking-[0.16em] text-ink/50">{h.credential}</p>
 
-        <p className="display mx-auto mt-10 max-w-[15ch] text-balance text-[2.9rem] sm:mt-12 sm:text-7xl lg:max-w-[16ch] lg:text-[6.4rem]">
-          <RevealText text={h.title} accentClass="serif-accent text-intense" base={0.35} />
+        <p className="display mx-auto mt-10 max-w-[17ch] text-balance text-[2.6rem] sm:mt-12 sm:text-6xl lg:max-w-[18ch] lg:text-[5.4rem]">
+          <RevealText text={h.title} accentClass="serif-accent text-intense" base={0.15} />
         </p>
 
         <div className="mx-auto mt-10 max-w-2xl space-y-4 text-[16.5px] leading-[1.7] text-ink/70 sm:text-lg">
@@ -66,14 +62,14 @@ export function Hero() {
           </figure>
           <div className="col-span-3 hidden -translate-y-10 lg:block">
             <div className="reveal d4">
-              <Photo name="officeDoor" ratio={3 / 4} sizes="25vw" maxWidth={800} className="rounded-[26px] shadow-soft" />
+              <Photo name="officeWaiting" ratio={3 / 4} sizes="25vw" maxWidth={800} className="rounded-[26px] shadow-soft" />
             </div>
           </div>
         </div>
 
-        <dl className="mt-16 grid grid-cols-2 gap-x-6 gap-y-10 border-t border-line pt-10 lg:grid-cols-4">
+        <dl className="mt-16 grid gap-x-6 gap-y-8 border-t border-line pt-10 sm:grid-cols-3">
           {t.facts.map((f, i) => (
-            <div key={f.label} className={`reveal ${['d1', 'd2', 'd3', 'd4'][i]}`}>
+            <div key={f.label} className={`reveal ${['d1', 'd2', 'd3'][i]}`}>
               <dt className="sr-only">{f.label}</dt>
               <dd>
                 <span className="font-serif text-6xl leading-none text-abyss sm:text-7xl">{f.value}</span>

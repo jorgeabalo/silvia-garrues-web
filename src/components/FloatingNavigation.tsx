@@ -69,7 +69,7 @@ export function FloatingNavigation() {
         className="nav-enter glass-dark fixed bottom-[max(14px,env(safe-area-inset-bottom))] left-1/2 z-50 flex w-[min(calc(100vw-24px),560px)] -translate-x-1/2 items-center justify-between gap-1 rounded-full p-1.5 text-white shadow-[0_20px_50px_-15px_rgba(5,15,34,.55)] ring-1 ring-white/10 md:w-auto md:gap-2"
       >
         <Link to={to('home')} aria-label={t.ui.home} className="rounded-full p-0.5 transition-transform hover:scale-105">
-          <Logo size={38} />
+          <Logo height={30} tile />
         </Link>
 
         <div className="hidden items-center md:flex">

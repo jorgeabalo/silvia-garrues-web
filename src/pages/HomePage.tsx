@@ -1,11 +1,11 @@
 import { useI18n } from '../i18n'
+import { IntroFilm } from '../sections/IntroFilm'
 import { Hero } from '../sections/Hero'
 import { PhotoMarquee } from '../components/PhotoMarquee'
+import { SpecialtiesSection } from '../sections/SpecialtiesSection'
+import { DivorceSection } from '../sections/DivorceSection'
 import { SilviaSection } from '../sections/SilviaSection'
-import { RootsSection } from '../sections/RootsSection'
-import { PracticeSection } from '../sections/PracticeSection'
 import { ApproachSection } from '../sections/ApproachSection'
-import { InternationalSection } from '../sections/InternationalSection'
 import { ArticlesSection } from '../sections/ArticlesSection'
 import { PressSection, TestimonialsSection } from '../sections/PressSection'
 import { CtaSection } from '../sections/CtaSection'
@@ -15,14 +15,13 @@ export default function HomePage() {
   const { t } = useI18n()
   return (
     <>
+      <IntroFilm />
       <Hero />
       <PhotoMarquee label={t.film.label} />
+      <SpecialtiesSection />
+      <DivorceSection />
       <SilviaSection />
-      <RootsSection />
-      <PracticeSection />
       <ApproachSection />
-      <div className="h-24 sm:h-36" />
-      <InternationalSection />
       <ArticlesSection />
       <PressSection />
       <TestimonialsSection />

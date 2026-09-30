@@ -12,13 +12,15 @@ interface Props {
   className?: string
   imgClassName?: string
   maxWidth?: number
+  /** Tratamiento de color cálido y sereno (activado por defecto) */
+  grade?: boolean
 }
 
 /**
  * Imagen responsive: srcset + sizes, lazy loading, dimensiones explícitas
  * (evita saltos de layout) y AVIF/WebP (local con <picture> o negociado por CDN).
  */
-export function Photo({ name, ratio, sizes = '100vw', priority, className = '', imgClassName = '', maxWidth = 1800 }: Props) {
+export function Photo({ name, ratio, sizes = '100vw', priority, className = '', imgClassName = '', maxWidth = 1800, grade = true }: Props) {
   const { lang } = useI18n()
   const p = getPhoto(name)
   const [loaded, setLoaded] = useState(false)
@@ -46,7 +48,7 @@ export function Photo({ name, ratio, sizes = '100vw', priority, className = '', 
     />
   )
   return (
-    <div className={`photo-skeleton relative overflow-hidden ${className}`} style={ratio ? { aspectRatio: String(ratio) } : undefined}>
+    <div className={`photo-skeleton relative overflow-hidden ${grade ? 'photo-grade' : ''} ${className}`} style={ratio ? { aspectRatio: String(ratio) } : undefined}>
       {isLocal(p) ? (
         <picture>
           <source type="image/avif" srcSet={srcSet(p, ratio, 'avif', maxWidth)} sizes={sizes} />
