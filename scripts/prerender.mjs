@@ -112,7 +112,10 @@ function head(lang, key) {
     `<meta name="twitter:card" content="summary_large_image" />`,
         `<script type="application/ld+json">${jsonLd(lang, key)}</script>`,
   ]
-  const hero = heroByRoute[key]
+  if (key === 'home') {
+    lines.push(`<link rel="preload" as="image" fetchpriority="high" type="image/avif" imagesrcset="/photos/silviaCutout-480.avif 480w, /photos/silviaCutout-800.avif 800w, /photos/silviaCutout-1112.avif 1112w" imagesizes="(min-width: 1024px) 45vw, 80vw" />`)
+  }
+  const hero = key === 'home' ? null : heroByRoute[key]
   if (hero) {
     const p = photos[hero]
     // Preload SOLO de la imagen principal

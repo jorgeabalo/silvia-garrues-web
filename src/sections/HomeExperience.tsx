@@ -40,7 +40,7 @@ export function HomeExperience() {
   const main = practiceAreas.filter((a) => a.tier === 'main')
 
   const slides: Slide[] = [
-    { id: 'intro', word: e.intro.word, text: e.intro.text, photo: 'silviaStanding', href: '', cta: e.hold },
+    { id: 'intro', word: e.intro.word, text: e.intro.text, photo: 'silviaDesk', href: '', cta: e.hold },
     ...main.map((a) => ({
       id: a.slug,
       word: e.words[a.slug as keyof typeof e.words] ?? a.name[lang],
@@ -126,17 +126,45 @@ export function HomeExperience() {
         onPointerUp={onUp}
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
-        className="xp relative isolate h-[100svh] min-h-[600px] overflow-hidden bg-night text-white"
+        className="xp relative isolate h-[100svh] min-h-[600px] overflow-hidden bg-[#1B4388] text-white"
       >
         {/* Fondos */}
-        {slides.map((s, i) => (
-          <div key={s.id} aria-hidden className={`xp-bg absolute inset-0 -z-20 ${i === index ? 'is-active' : ''}`}>
-            <div className="xp-kb absolute inset-0 lg:left-[34%]">
-              <Photo name={s.photo} priority={i === 0} sizes="(min-width: 1024px) 66vw, 100vw" grade={false} className="xp-duo h-full w-full !bg-night" />
+        {slides.map((s, i) =>
+          s.id === 'intro' ? (
+            <div key={s.id} aria-hidden className={`xp-bg xp-soft absolute inset-0 -z-20 ${i === index ? 'is-active' : ''}`}>
+              {/* Sala desenfocada (modo retrato) teñida de azul, para integrar a Silvia */}
+              <picture className="xp-backdrop absolute inset-y-0 right-0 block w-full lg:w-[70%]">
+                <source type="image/avif" srcSet="/photos/silviaBackdrop-800.avif 800w, /photos/silviaBackdrop-1600.avif 1600w" sizes="70vw" />
+                <img src="/photos/silviaBackdrop-800.webp" srcSet="/photos/silviaBackdrop-800.webp 800w, /photos/silviaBackdrop-1600.webp 1600w" sizes="70vw" alt="" width={1600} height={1000} className="h-full w-full object-cover" />
+              </picture>
+              {/* Silvia en color sobre azul suave en degradado */}
+              <div className="absolute right-0 top-16 h-[50%] sm:bottom-0 sm:top-auto sm:h-[88%] sm:translate-x-[10.5%] lg:h-[92%]">
+              <picture className="xp-cutout block h-full">
+                <source type="image/avif" srcSet="/photos/silviaCutout-480.avif 480w, /photos/silviaCutout-800.avif 800w, /photos/silviaCutout-1112.avif 1112w" sizes="(min-width: 1024px) 45vw, 80vw" />
+                <img
+                  src="/photos/silviaCutout-800.webp"
+                  srcSet="/photos/silviaCutout-480.webp 480w, /photos/silviaCutout-800.webp 800w, /photos/silviaCutout-1112.webp 1112w"
+                  sizes="(min-width: 1024px) 45vw, 80vw"
+                  width={1112}
+                  height={2085}
+                  alt=""
+                  // @ts-expect-error — atributo estándar aún no tipado en React 18
+                  fetchpriority="high"
+                  className="h-full w-auto max-w-none object-contain object-right-bottom"
+                />
+              </picture>
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#173A78] via-[#1B4388]/75 via-45% to-transparent to-70% sm:hidden" />
             </div>
-          </div>
-        ))}
-        <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-night via-night/70 to-night/20 lg:bg-gradient-to-r lg:from-night lg:via-night/80 lg:to-night/10" />
+          ) : (
+            <div key={s.id} aria-hidden className={`xp-bg absolute inset-0 -z-20 ${i === index ? 'is-active' : ''}`}>
+              <div className="xp-kb absolute inset-0 lg:left-[34%]">
+                <Photo name={s.photo} sizes="(min-width: 1024px) 66vw, 100vw" grade={false} className="xp-duo h-full w-full !bg-[#1B4388]" />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#132F63] via-[#17407F]/70 to-[#17407F]/10 lg:bg-gradient-to-r lg:from-[#132F63] lg:via-[#17407F]/65 lg:to-transparent" />
+            </div>
+          ),
+        )}
         <div aria-hidden className="xp-grid pointer-events-none absolute inset-0 -z-10" />
         <div aria-hidden className="xp-dust pointer-events-none absolute inset-0 -z-10" />
 
@@ -147,9 +175,9 @@ export function HomeExperience() {
 
         {/* Contador */}
         <div className="absolute left-1/2 top-24 -translate-x-1/2 text-[12px] font-medium tracking-[0.3em] lg:top-28" aria-live="polite">
-          <span className="text-sky">{pad(index)}</span>
+          <span className="text-white">{pad(index)}</span>
           <span className="mx-3 inline-block h-px w-10 translate-y-[-3px] bg-white/40" />
-          <span className="text-white/60">{pad(n - 1)}</span>
+          <span className="text-white/80">{pad(n - 1)}</span>
         </div>
 
         {/* Contenido de cada capítulo */}
@@ -212,7 +240,7 @@ export function HomeExperience() {
         })}
 
         {/* Flechas circulares con progreso */}
-        <div className="absolute bottom-24 right-5 flex gap-3 sm:bottom-auto sm:right-8 sm:top-1/2 sm:-translate-y-1/2 sm:flex-col lg:right-12">
+        <div className="absolute bottom-24 right-5 flex gap-3 sm:bottom-8 sm:right-8 lg:right-12">
           <RingButton label={e.next} onClick={next} progress={index > 0 && !paused && !reduced} cycle={cycle} duration={AUTOPLAY}>
             <ArrowRight className="h-5 w-5" strokeWidth={1.5} />
           </RingButton>
