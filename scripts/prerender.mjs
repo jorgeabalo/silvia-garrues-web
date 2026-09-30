@@ -10,7 +10,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const dist = path.join(root, 'dist')
 const ssr = await import(pathToFileURL(path.join(root, 'dist-ssr/entry-server.js')).href)
-const { render, allRoutes, paths, languages, htmlLang, dictionaries, site, practiceAreas, photos, photoUrl, srcSet } = ssr
+const { render, allRoutes, allAreaRoutes, areaPath, areaMeta, paths, languages, htmlLang, dictionaries, site, practiceAreas, photos, photoUrl, srcSet } = ssr
 
 const template = fs.readFileSync(path.join(dist, 'index.html'), 'utf8')
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;')
@@ -65,7 +65,7 @@ function jsonLd(lang, key) {
       name: t.pages.services.kicker,
       itemListElement: practiceAreas.map((a) => ({
         '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name: a.name[lang], description: a.short[lang], url: `${url}#${a.slug}` },
+        itemOffered: { '@type': 'Service', name: a.name[lang], description: a.short[lang], url: site.url + areaPath(lang, a.slug) },
       })),
     }
   }
@@ -113,7 +113,7 @@ function head(lang, key) {
         `<script type="application/ld+json">${jsonLd(lang, key)}</script>`,
   ]
   if (key === 'home') {
-    lines.push(`<link rel="preload" as="image" fetchpriority="high" type="image/avif" imagesrcset="/photos/silviaCutout-480.avif 480w, /photos/silviaCutout-800.avif 800w, /photos/silviaCutout-1112.avif 1112w" imagesizes="(min-width: 1024px) 45vw, 80vw" />`)
+    lines.push(`<link rel="preload" as="image" fetchpriority="high" type="image/avif" imagesrcset="/photos/silviaPortraitBlue-480.avif 480w, /photos/silviaPortraitBlue-920.avif 920w" imagesizes="(min-width: 640px) 40vw, 60vw" />`)
   }
   const hero = key === 'home' ? null : heroByRoute[key]
   if (hero) {
@@ -141,6 +141,55 @@ for (const { lang, key, path: p } of allRoutes) {
   write(out, page(p, lang, head(lang, key)))
   console.log('✓', p)
 }
+// Páginas por área de práctica
+function areaHead(lang, id) {
+  const t = dictionaries[lang]
+  const meta = areaMeta(id, lang)
+  const url = site.url + areaPath(lang, id)
+  const area = practiceAreas.find((a) => a.slug === id)
+  const ld = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Service',
+        name: area.name[lang],
+        description: area.short[lang],
+        url,
+        areaServed: ['Tolosa', 'Gipuzkoa', 'Euskadi', 'España'],
+        provider: { '@type': 'LegalService', '@id': `${site.url}/#despacho`, name: 'Silvia Garrues Remírez · ADOS', telephone: site.phones.map((p) => p.href.replace('tel:', '')), address: { '@type': 'PostalAddress', streetAddress: site.address.street, postalCode: site.address.postalCode, addressLocality: site.address.city, addressRegion: site.address.region, addressCountry: site.address.country } },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: t.ui.home, item: site.url + paths[lang].home },
+          { '@type': 'ListItem', position: 2, name: t.meta.services.title.split(' · ')[0], item: site.url + paths[lang].services },
+          { '@type': 'ListItem', position: 3, name: area.name[lang], item: url },
+        ],
+      },
+    ],
+  }
+  return [
+    `<title>${esc(meta.title)}</title>`,
+    `<meta name="description" content="${esc(meta.description)}" />`,
+    `<meta name="robots" content="index, follow, max-image-preview:large" />`,
+    `<link rel="canonical" href="${url}" />`,
+    ...languages.map((l) => `<link rel="alternate" hreflang="${l}" href="${site.url + areaPath(l, id)}" />`),
+    `<link rel="alternate" hreflang="x-default" href="${site.url + areaPath('es', id)}" />`,
+    `<meta property="og:type" content="website" />`,
+    `<meta property="og:site_name" content="Silvia Garrues Remírez" />`,
+    `<meta property="og:title" content="${esc(meta.title)}" />`,
+    `<meta property="og:description" content="${esc(meta.description)}" />`,
+    `<meta property="og:url" content="${url}" />`,
+    `<meta property="og:image" content="${ogImage}" />`,
+    `<meta name="twitter:card" content="summary_large_image" />`,
+    `<script type="application/ld+json">${JSON.stringify(ld)}</script>`,
+  ].join('\n    ')
+}
+for (const { lang, id, path: p } of allAreaRoutes) {
+  write(path.join(dist, p.slice(1), 'index.html'), page(p, lang, areaHead(lang, id)))
+  console.log('✓', p)
+}
+
 // 404
 write(path.join(dist, '404.html'), page('/404', 'es', `<title>${esc(dictionaries.es.pages.notFound.title)}</title>\n    <meta name="robots" content="noindex" />`))
 
@@ -157,6 +206,16 @@ ${indexable
 ${languages.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${site.url + paths[l][r.key]}" />`).join('\n')}
     <xhtml:link rel="alternate" hreflang="x-default" href="${site.url + paths.es[r.key]}" />
     <priority>${r.key === 'home' ? '1.0' : '0.8'}</priority>
+  </url>`,
+  )
+  .join('\n')}
+${allAreaRoutes
+  .map(
+    (r) => `  <url>
+    <loc>${site.url + r.path}</loc>
+    <lastmod>${today}</lastmod>
+${languages.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${site.url + areaPath(l, r.id)}" />`).join('\n')}
+    <priority>${practiceAreas.find((a) => a.slug === r.id).tier === 'main' ? '0.9' : '0.6'}</priority>
   </url>`,
   )
   .join('\n')}

@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom'
 import { useI18n } from '../i18n'
 import { site } from '../content/site'
+import { copy } from '../content/compliance'
 import { Logo } from './Logo'
 import { LanguageSelector } from './LanguageSelector'
 
 export function Footer() {
-  const { t, to } = useI18n()
+  const { t, to, lang } = useI18n()
   const year = new Date().getFullYear()
   const main = [
     { key: 'silvia' as const, label: t.ui.silvia },
@@ -29,6 +30,7 @@ export function Footer() {
               Silvia Garrues <span className="serif-accent text-haze">Remírez</span>
             </p>
             <p className="mt-4 text-white/55">{t.footer.tagline}</p>
+            <p className="mt-2 max-w-md text-[13px] text-white/40">{copy[lang].colegiada}</p>
           </div>
           <div className="grid grid-cols-2 gap-10 text-[15px] sm:grid-cols-3">
             <nav className="flex flex-col gap-3" aria-label="Footer">

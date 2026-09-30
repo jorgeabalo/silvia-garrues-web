@@ -8,7 +8,7 @@ import { SectionTitle } from '../components/SectionTitle'
 
 /** Especialidades en mosaico de imagen (bento). Divorcios, protagonista. */
 export function SpecialtiesSection() {
-  const { t, lang, to } = useI18n()
+  const { t, lang, toArea } = useI18n()
   const main = practiceAreas.filter((a) => a.tier === 'main')
   const others = practiceAreas.filter((a) => a.tier === 'other')
   const layout = ['lg:col-span-7 lg:row-span-2 min-h-[460px] lg:min-h-[620px]', 'lg:col-span-5 min-h-[300px]', 'lg:col-span-5 min-h-[300px]', 'lg:col-span-6 min-h-[320px]', 'lg:col-span-6 min-h-[320px]']
@@ -23,7 +23,7 @@ export function SpecialtiesSection() {
           {main.map((a, i) => (
             <Link
               key={a.slug}
-              to={to('services', a.slug)}
+              to={toArea(a.slug)}
               className={`reveal ${['', 'd1', 'd2', 'd3', 'd4'][i]} group relative isolate flex flex-col justify-end overflow-hidden rounded-[28px] bg-abyss p-7 text-white shadow-soft sm:p-9 ${layout[i]}`}
             >
               {a.photo ? (
@@ -50,7 +50,7 @@ export function SpecialtiesSection() {
         <AnimatedSection as="div" className="mt-8 flex flex-wrap items-center gap-2">
           <span className="reveal mr-2 text-[14px] text-ink/55">{t.specialties.others}</span>
           {others.map((a, i) => (
-            <Link key={a.slug} to={to('services', a.slug)} className={`reveal ${['d1', 'd2', 'd3', 'd4'][i % 4]} rounded-full border border-line bg-white px-4 py-2 text-[14px] text-ink/75 transition-colors hover:border-abyss hover:text-abyss`}>
+            <Link key={a.slug} to={toArea(a.slug)} className={`reveal ${['d1', 'd2', 'd3', 'd4'][i % 4]} rounded-full border border-line bg-white px-4 py-2 text-[14px] text-ink/75 transition-colors hover:border-abyss hover:text-abyss`}>
               {a.name[lang]}
             </Link>
           ))}

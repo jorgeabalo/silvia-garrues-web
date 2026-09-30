@@ -1,7 +1,7 @@
 import { createContext, useContext, type ReactNode } from 'react'
 import es, { type Dict } from './es'
 import eu from './eu'
-import { paths, type Lang, type RouteKey } from './routes'
+import { areaPath, paths, type Lang, type RouteKey } from './routes'
 
 export const dictionaries: Record<Lang, Dict> = { es, eu }
 
@@ -12,17 +12,22 @@ interface I18nValue {
   to: (key: RouteKey, hash?: string) => string
   /** Ruta equivalente de la página actual en otro idioma */
   alternate: (lang: Lang) => string
+  /** Página propia de un área de práctica */
+  toArea: (id: string) => string
+  area: string | null
 }
 
 const I18nContext = createContext<I18nValue | null>(null)
 
-export function I18nProvider({ lang, routeKey, children }: { lang: Lang; routeKey: RouteKey | null; children: ReactNode }) {
+export function I18nProvider({ lang, routeKey, area = null, children }: { lang: Lang; routeKey: RouteKey | null; area?: string | null; children: ReactNode }) {
   const value: I18nValue = {
     lang,
     routeKey,
     t: dictionaries[lang],
     to: (key, hash) => paths[lang][key] + (hash ? `#${hash}` : ''),
-    alternate: (l) => paths[l][routeKey ?? 'home'],
+    alternate: (l) => (area ? areaPath(l, area) : paths[l][routeKey ?? 'home']),
+    toArea: (id) => areaPath(lang, id),
+    area,
   }
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>
 }

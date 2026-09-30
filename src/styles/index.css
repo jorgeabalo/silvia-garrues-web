@@ -351,3 +351,6 @@
 .xp-cutout { opacity: 0; transform: translateX(40px); transition: opacity 1.2s var(--ease-out) 0.2s, transform 1.4s var(--ease-out) 0.2s; filter: drop-shadow(-18px 24px 40px rgba(15, 42, 92, 0.28)); }
 .xp-bg.is-active .xp-cutout { opacity: 1; transform: none; }
 @media (max-width: 639px) { .xp-cutout { opacity: 0.95; } }
+
+.xp-portrait { opacity: 0; transition: opacity 1.2s var(--ease-out) 0.2s; }
+.xp-bg.is-active .xp-portrait { opacity: 1; }

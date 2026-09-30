@@ -4,10 +4,10 @@ import { StaticRouter } from 'react-router-dom/server'
 import App from './App'
 import './styles/index.css'
 
-export { allRoutes, paths, languages, htmlLang } from './i18n/routes'
+export { allRoutes, allAreaRoutes, areaPath, paths, languages, htmlLang } from './i18n/routes'
 export { dictionaries } from './i18n'
 export { site } from './content/site'
-export { practiceAreas } from './content/practice'
+export { practiceAreas, areaMeta } from './content/practice'
 export { photos } from './content/photos'
 export { photoUrl, srcSet } from './lib/photo'
 

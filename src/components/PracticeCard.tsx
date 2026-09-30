@@ -5,11 +5,11 @@ import { useI18n } from '../i18n'
 import { Photo } from './Photo'
 
 export function PracticeCard({ area, index, className = '' }: { area: PracticeArea; index: number; className?: string }) {
-  const { lang, t, to } = useI18n()
+  const { lang, t, toArea } = useI18n()
   const featured = area.featured && area.photo
   return (
     <Link
-      to={to('services', area.slug)}
+      to={toArea(area.slug)}
       className={`group relative flex flex-col overflow-hidden rounded-[28px] border border-line bg-white p-6 shadow-soft transition-all duration-700 ease-[cubic-bezier(.16,1,.3,1)] hover:-translate-y-1.5 hover:border-transparent hover:shadow-lift sm:p-8 ${className}`}
     >
       {featured && (

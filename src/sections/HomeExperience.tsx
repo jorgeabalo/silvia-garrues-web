@@ -1,13 +1,11 @@
 import { useCallback, useEffect, useRef, useState, type CSSProperties, type PointerEvent as RPointerEvent } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowLeft, ArrowRight, ChevronDown, Phone, Play, X } from 'lucide-react'
+import { ArrowLeft, ArrowRight, ChevronDown, Phone } from 'lucide-react'
 import { useI18n } from '../i18n'
 import { practiceAreas } from '../content/practice'
 import { site } from '../content/site'
 import type { PhotoKey } from '../content/photos'
 import { Photo } from '../components/Photo'
-import { useReducedMotion } from '../hooks/useReducedMotion'
-import { IntroFilm } from './IntroFilm'
 
 /**
  * Experiencia a pantalla completa por capítulos (inspirada en Orano "Innovation"),
@@ -34,19 +32,18 @@ interface Slide {
 }
 
 export function HomeExperience() {
-  const { t, lang, to } = useI18n()
+  const { t, lang, to, toArea } = useI18n()
   const e = t.exp
-  const reduced = useReducedMotion()
   const main = practiceAreas.filter((a) => a.tier === 'main')
 
   const slides: Slide[] = [
-    { id: 'intro', word: e.intro.word, text: e.intro.text, photo: 'silviaDesk', href: '', cta: e.hold },
+    { id: 'intro', word: e.intro.word, text: e.intro.text, photo: 'silviaDesk', href: '', cta: '' },
     ...main.map((a) => ({
       id: a.slug,
       word: e.words[a.slug as keyof typeof e.words] ?? a.name[lang],
       text: a.short[lang],
       photo: areaPhotos[a.slug] ?? 'officeRoom',
-      href: to('services', a.slug),
+      href: toArea(a.slug),
       cta: e.enter,
     })),
     { id: 'final', word: e.final.word, text: e.final.text, photo: 'silviaSeated', href: to('contact'), cta: t.ui.book },
@@ -54,8 +51,6 @@ export function HomeExperience() {
   const n = slides.length
 
   const [index, setIndex] = useState(0)
-  const [paused, setPaused] = useState(false)
-  const [film, setFilm] = useState(false)
   const [cycle, setCycle] = useState(0) // reinicia el anillo de progreso
   const root = useRef<HTMLElement>(null)
 
@@ -69,24 +64,17 @@ export function HomeExperience() {
   const next = useCallback(() => go(index + 1), [go, index])
   const prev = useCallback(() => go(index - 1), [go, index])
 
-  // Autoplay (solo visible, sin reduced-motion, no en la portada ni en pausa)
-  useEffect(() => {
-    if (reduced || paused || index === 0 || film) return
-    const id = window.setTimeout(next, AUTOPLAY)
-    return () => window.clearTimeout(id)
-  }, [index, paused, reduced, next, film, cycle])
-
   // Teclado
   useEffect(() => {
     const onKey = (ev: KeyboardEvent) => {
       const r = root.current?.getBoundingClientRect()
-      if (!r || r.bottom < 100 || film) return
+      if (!r || r.bottom < 100) return
       if (ev.key === 'ArrowRight') next()
       if (ev.key === 'ArrowLeft') prev()
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [next, prev, film])
+  }, [next, prev])
 
   // Gesto horizontal (móvil)
   const start = useRef<{ x: number; y: number } | null>(null)
@@ -102,18 +90,6 @@ export function HomeExperience() {
     if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(ev.clientY - s.y)) (dx < 0 ? next : prev)()
   }
 
-  // Película en modal
-  useEffect(() => {
-    if (!film) return
-    const onKey = (ev: KeyboardEvent) => ev.key === 'Escape' && setFilm(false)
-    window.addEventListener('keydown', onKey)
-    document.documentElement.style.overflow = 'hidden'
-    return () => {
-      window.removeEventListener('keydown', onKey)
-      document.documentElement.style.overflow = ''
-    }
-  }, [film])
-
   const pad = (i: number) => String(i).padStart(2, '0')
 
   return (
@@ -124,37 +100,30 @@ export function HomeExperience() {
         aria-label={e.chapters}
         onPointerDown={onDown}
         onPointerUp={onUp}
-        onMouseEnter={() => setPaused(true)}
-        onMouseLeave={() => setPaused(false)}
         className="xp relative isolate h-[100svh] min-h-[600px] overflow-hidden bg-[#1B4388] text-white"
       >
         {/* Fondos */}
         {slides.map((s, i) =>
           s.id === 'intro' ? (
             <div key={s.id} aria-hidden className={`xp-bg xp-soft absolute inset-0 -z-20 ${i === index ? 'is-active' : ''}`}>
-              {/* Sala desenfocada (modo retrato) teñida de azul, para integrar a Silvia */}
-              <picture className="xp-backdrop absolute inset-y-0 right-0 block w-full lg:w-[70%]">
-                <source type="image/avif" srcSet="/photos/silviaBackdrop-800.avif 800w, /photos/silviaBackdrop-1600.avif 1600w" sizes="70vw" />
-                <img src="/photos/silviaBackdrop-800.webp" srcSet="/photos/silviaBackdrop-800.webp 800w, /photos/silviaBackdrop-1600.webp 1600w" sizes="70vw" alt="" width={1600} height={1000} className="h-full w-full object-cover" />
-              </picture>
-              {/* Silvia en color sobre azul suave en degradado */}
-              <div className="absolute right-0 top-16 h-[50%] sm:bottom-0 sm:top-auto sm:h-[88%] sm:translate-x-[10.5%] lg:h-[92%]">
-              <picture className="xp-cutout block h-full">
-                <source type="image/avif" srcSet="/photos/silviaCutout-480.avif 480w, /photos/silviaCutout-800.avif 800w, /photos/silviaCutout-1112.avif 1112w" sizes="(min-width: 1024px) 45vw, 80vw" />
-                <img
-                  src="/photos/silviaCutout-800.webp"
-                  srcSet="/photos/silviaCutout-480.webp 480w, /photos/silviaCutout-800.webp 800w, /photos/silviaCutout-1112.webp 1112w"
-                  sizes="(min-width: 1024px) 45vw, 80vw"
-                  width={1112}
-                  height={2085}
-                  alt=""
-                  // @ts-expect-error — atributo estándar aún no tipado en React 18
-                  fetchpriority="high"
-                  className="h-full w-auto max-w-none object-contain object-right-bottom"
-                />
-              </picture>
+              {/* Retrato de Silvia en color sobre azul suave, enmarcado en arco */}
+              <div className="xp-portrait absolute left-1/2 top-24 h-[42%] -translate-x-1/2 sm:left-auto sm:right-[6%] sm:top-1/2 sm:h-[74%] sm:-translate-y-[46%] sm:translate-x-0 lg:right-[9%]">
+                <picture className="block h-full overflow-hidden rounded-t-[999px] rounded-b-[36px] shadow-[0_40px_90px_-30px_rgba(10,30,70,.55)] ring-1 ring-white/40" style={{ aspectRatio: '920 / 1170' }}>
+                  <source type="image/avif" srcSet="/photos/silviaPortraitBlue-480.avif 480w, /photos/silviaPortraitBlue-920.avif 920w" sizes="(min-width: 640px) 40vw, 60vw" />
+                  <img
+                    src="/photos/silviaPortraitBlue-920.webp"
+                    srcSet="/photos/silviaPortraitBlue-480.webp 480w, /photos/silviaPortraitBlue-920.webp 920w"
+                    sizes="(min-width: 640px) 40vw, 60vw"
+                    width={920}
+                    height={1170}
+                    alt="Silvia Garrues Remírez"
+                    // @ts-expect-error — atributo estándar aún no tipado en React 18
+                    fetchpriority="high"
+                    className="h-full w-full object-cover"
+                  />
+                </picture>
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-[#173A78] via-[#1B4388]/75 via-45% to-transparent to-70% sm:hidden" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1B4388] via-[#1B4388]/70 via-40% to-transparent to-60% sm:hidden" />
             </div>
           ) : (
             <div key={s.id} aria-hidden className={`xp-bg absolute inset-0 -z-20 ${i === index ? 'is-active' : ''}`}>
@@ -214,12 +183,14 @@ export function HomeExperience() {
                   <div className="xp-cta mt-9 flex flex-wrap items-center gap-4">
                     {i === 0 ? (
                       <>
-                        <HoldButton label={s.cta} short={e.holdShort} onDone={next} />
-                        <button type="button" onClick={() => setFilm(true)} className="group inline-flex min-h-[52px] items-center gap-3 pr-2 text-[14px] font-medium text-white/85 hover:text-white" tabIndex={active ? 0 : -1}>
-                          <span className="grid h-11 w-11 place-items-center rounded-full border border-white/30 transition-transform duration-500 group-hover:scale-110">
-                            <Play className="ml-0.5 h-4 w-4 fill-current" />
+                        <Link to={to('contact')} tabIndex={active ? 0 : -1} className="inline-flex min-h-[52px] items-center border-l-[3px] border-sky bg-white px-8 text-[13px] font-semibold uppercase tracking-[0.22em] text-night transition-colors hover:bg-haze">
+                          {t.ui.book}
+                        </Link>
+                        <button type="button" onClick={next} tabIndex={active ? 0 : -1} className="group inline-flex min-h-[52px] items-center gap-3 text-[13px] font-semibold uppercase tracking-[0.22em] text-white/90 hover:text-white">
+                          {e.discover}
+                          <span className="grid h-11 w-11 place-items-center rounded-full border border-white/40 transition-transform duration-500 group-hover:translate-x-1">
+                            <ArrowRight className="h-4 w-4" />
                           </span>
-                          {t.cine.play}
                         </button>
                       </>
                     ) : (
@@ -241,7 +212,7 @@ export function HomeExperience() {
 
         {/* Flechas circulares con progreso */}
         <div className="absolute bottom-24 right-5 flex gap-3 sm:bottom-8 sm:right-8 lg:right-12">
-          <RingButton label={e.next} onClick={next} progress={index > 0 && !paused && !reduced} cycle={cycle} duration={AUTOPLAY}>
+          <RingButton label={e.next} onClick={next} cycle={cycle}>
             <ArrowRight className="h-5 w-5" strokeWidth={1.5} />
           </RingButton>
           <RingButton label={e.prev} onClick={prev} cycle={cycle}>
@@ -274,16 +245,6 @@ export function HomeExperience() {
         </a>
       </section>
 
-      {film && (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-night/85 p-3 backdrop-blur-md sm:p-8" onClick={() => setFilm(false)}>
-          <div role="dialog" aria-modal="true" aria-label={t.intro.label} className="relative w-full max-w-5xl" onClick={(ev) => ev.stopPropagation()}>
-            <button type="button" onClick={() => setFilm(false)} aria-label={t.cine.close} className="absolute -top-14 right-0 grid h-11 w-11 place-items-center rounded-full bg-white/10 text-white hover:bg-white/20">
-              <X className="h-5 w-5" />
-            </button>
-            <IntroFilm embedded onCta={() => setFilm(false)} />
-          </div>
-        </div>
-      )}
     </>
   )
 }
@@ -297,48 +258,6 @@ function RingButton({ label, onClick, children, progress, cycle, duration = AUTO
         {progress && <circle key={cycle} className="xp-ring" cx="32" cy="32" r="30.5" fill="none" stroke="#6FA8FF" strokeWidth="1.6" pathLength={1} style={{ animationDuration: `${duration}ms` }} />}
       </svg>
       <span className="transition-transform duration-500 group-hover:translate-x-0.5">{children}</span>
-    </button>
-  )
-}
-
-/** "Mantén pulsado para entrar" (como Orano); clic/teclado también funcionan. */
-function HoldButton({ label, short, onDone }: { label: string; short: string; onDone: () => void }) {
-  const [p, setP] = useState(0)
-  const raf = useRef(0)
-  const t0 = useRef(0)
-  const HOLD = 900
-  const stop = () => {
-    cancelAnimationFrame(raf.current)
-    setP(0)
-  }
-  const begin = () => {
-    t0.current = performance.now()
-    const tick = (now: number) => {
-      const v = Math.min(1, (now - t0.current) / HOLD)
-      setP(v)
-      if (v >= 1) {
-        setP(0)
-        onDone()
-        return
-      }
-      raf.current = requestAnimationFrame(tick)
-    }
-    raf.current = requestAnimationFrame(tick)
-  }
-  useEffect(() => () => cancelAnimationFrame(raf.current), [])
-  return (
-    <button
-      type="button"
-      onPointerDown={begin}
-      onPointerUp={(ev) => (ev.pointerType === 'mouse' ? stop() : (stop(), onDone()))}
-      onPointerLeave={stop}
-      onKeyDown={(ev) => (ev.key === 'Enter' || ev.key === ' ') && (ev.preventDefault(), onDone())}
-      onClick={(ev) => ev.detail === 0 && onDone()}
-      className="relative inline-flex min-h-[52px] select-none items-center gap-4 overflow-hidden border-l-[3px] border-sky bg-white px-7 text-[12.5px] font-semibold uppercase tracking-[0.22em] text-night"
-      aria-label={short}
-    >
-      <span aria-hidden className="absolute inset-y-0 left-0 bg-haze" style={{ width: `${p * 100}%` }} />
-      <span className="relative">{label}</span>
     </button>
   )
 }

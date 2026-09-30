@@ -5,18 +5,19 @@ import { AnimatedSection } from '../components/AnimatedSection'
 import { SectionTitle } from '../components/SectionTitle'
 
 /** Preguntas frecuentes en acordeón (con datos estructurados FAQPage en el prerender). */
-export function FaqSection() {
+export function FaqSection({ items, title, id = 'preguntas' }: { items?: { q: string; a: string }[]; title?: string; id?: string }) {
   const { t } = useI18n()
+  const list = items ?? t.faq.items
   const [open, setOpen] = useState<number | null>(0)
   return (
-    <AnimatedSection id="preguntas" className="scroll-mt-24 py-24 sm:py-32">
+    <AnimatedSection id={id} className="scroll-mt-24 py-24 sm:py-32">
       <div className="page-x grid gap-12 lg:grid-cols-12">
         <div className="lg:col-span-4">
-          <SectionTitle kicker={t.faq.kicker} title={t.faq.title} />
+          <SectionTitle kicker={t.faq.kicker} title={title ?? t.faq.title} />
           <p className="reveal d2 mt-6 text-[15px] text-ink/55">{t.faq.note}</p>
         </div>
         <div className="lg:col-span-8">
-          {t.faq.items.map((it, i) => {
+          {list.map((it, i) => {
             const isOpen = open === i
             return (
               <div key={it.q} className={`reveal ${['d1', 'd2', 'd3', 'd4'][i % 4]} border-b border-line`}>

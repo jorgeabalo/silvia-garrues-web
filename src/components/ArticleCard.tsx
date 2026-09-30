@@ -1,6 +1,7 @@
 import { ArrowUpRight } from 'lucide-react'
 import type { Article } from '../content/articles'
 import { formatDate, useI18n } from '../i18n'
+import { copy } from '../content/compliance'
 import { Photo } from './Photo'
 
 /** Artículo presentado como pieza de revista. Enlaza al texto original íntegro. */
@@ -31,6 +32,9 @@ export function ArticleCard({ article, size = 'md', className = '' }: { article:
         <h3 lang={article.lang} className={`mt-3 font-medium tracking-[-0.03em] text-ink transition-colors group-hover:text-intense ${size === 'md' ? 'text-[1.45rem] leading-[1.15]' : 'text-[1.15rem] leading-[1.25]'}`}>
           {sentence(article.title)}
         </h3>
+        {new Date().getFullYear() - Number(article.date.slice(0, 4)) >= 2 && (
+          <p className="mt-2 text-[12.5px] italic leading-snug text-ink/50">{copy[lang].oldArticle(Number(article.date.slice(0, 4)))}</p>
+        )}
         {article.excerpt && size === 'md' && (
           <p lang={article.lang} className="mt-3 line-clamp-4 text-[15px] leading-[1.65] text-ink/65">
             {article.excerpt}

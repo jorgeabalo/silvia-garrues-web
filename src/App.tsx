@@ -1,7 +1,7 @@
 import { useEffect, type ComponentType } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import { I18nProvider } from './i18n'
-import { allRoutes, langFromPath, resolve, type RouteKey } from './i18n/routes'
+import { allAreaRoutes, allRoutes, langFromPath, resolve, resolveArea, type RouteKey } from './i18n/routes'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 import { Head } from './components/Head'
@@ -12,6 +12,7 @@ import ArticlesPage from './pages/ArticlesPage'
 import ContactPage from './pages/ContactPage'
 import LegalPage from './pages/LegalPage'
 import NotFoundPage from './pages/NotFoundPage'
+import AreaPage from './pages/AreaPage'
 
 const pages: Record<RouteKey, ComponentType> = {
   home: HomePage,
@@ -42,9 +43,10 @@ function ScrollManager() {
 export default function App() {
   const { pathname } = useLocation()
   const match = resolve(pathname)
-  const lang = match?.lang ?? langFromPath(pathname)
+  const areaMatch = match ? null : resolveArea(pathname)
+  const lang = match?.lang ?? areaMatch?.lang ?? langFromPath(pathname)
   return (
-    <I18nProvider lang={lang} routeKey={match?.key ?? null}>
+    <I18nProvider lang={lang} routeKey={match?.key ?? (areaMatch ? 'services' : null)} area={areaMatch?.id ?? null}>
       <Head />
       <ScrollManager />
       <Header />
@@ -54,6 +56,9 @@ export default function App() {
             const Page = pages[key]
             return <Route key={path} path={path} element={<Page />} />
           })}
+          {allAreaRoutes.map(({ id, path }) => (
+            <Route key={path} path={path} element={<AreaPage id={id} />} />
+          ))}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>

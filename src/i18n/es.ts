@@ -116,6 +116,7 @@ const es = {
   },
 
   exp: {
+    discover: 'Descubrir',
     label: 'Primero, el diálogo',
     hold: 'Mantén pulsado para entrar',
     holdShort: 'Entrar',
@@ -186,6 +187,10 @@ const es = {
       {
         q: '¿En qué idiomas atendéis?',
         a: 'En castellano, euskera e inglés.',
+      },
+      {
+        q: '¿Cuánto cuesta y cómo se paga?',
+        a: 'Depende del tipo de asunto y de su complejidad, por eso no publicamos precios cerrados. Antes de empezar te explicamos cómo se calcularán los honorarios y, si lo pides, te damos un presupuesto por escrito. Puedes pagar por transferencia o por Bizum.',
       },
     ],
   },
@@ -306,7 +311,7 @@ const es = {
       reason: 'Motivo de consulta',
       reasonPlaceholder: 'Selecciona un área',
       other: 'Otro asunto',
-      message: 'Mensaje',
+      message: 'Mensaje breve (opcional)',
       privacy: 'He leído y acepto la',
       privacyLink: 'política de privacidad',
       submit: 'Enviar consulta',
@@ -316,7 +321,7 @@ const es = {
       error: 'No se ha podido enviar. Escríbenos directamente a silvia@garrues.com.',
       required: 'Campo obligatorio',
       disclaimer:
-        'El envío de este formulario no crea una relación abogado-cliente ni supone la aceptación del encargo. Por favor, no incluyas información confidencial hasta que hayamos confirmado que podemos ocuparnos de tu asunto.',
+        'Solo necesitamos saber quién eres, cómo contactarte y el área. Por favor, no nos cuentes aquí los detalles de tu caso ni datos sensibles (salud, menores, denuncias): hablaremos de ello en persona. Enviar el formulario no crea una relación abogada-cliente.',
       rgpd: 'Responsable: Silvia Garrues Remírez. Finalidad: atender tu consulta. Legitimación: tu consentimiento. No se cederán datos a terceros salvo obligación legal. Puedes ejercer tus derechos de acceso, rectificación y supresión escribiendo a silvia@garrues.com.',
     },
   },

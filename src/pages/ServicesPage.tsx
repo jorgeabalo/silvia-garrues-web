@@ -1,4 +1,5 @@
-import { Check } from 'lucide-react'
+import { ArrowRight, Check } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { useI18n } from '../i18n'
 import { practiceAreas } from '../content/practice'
 import { AnimatedSection } from '../components/AnimatedSection'
@@ -10,7 +11,7 @@ import { ApproachSection } from '../sections/ApproachSection'
 import { CtaSection } from '../sections/CtaSection'
 
 export default function ServicesPage() {
-  const { t, lang, to } = useI18n()
+  const { t, lang, to, toArea } = useI18n()
   const p = t.pages.services
   return (
     <>
@@ -42,7 +43,10 @@ export default function ServicesPage() {
                       </li>
                     ))}
                   </ul>
-                  <div className="reveal d4 mt-10">
+                  <div className="reveal d4 mt-10 flex flex-wrap items-center gap-4">
+                    <Link to={toArea(a.slug)} className="inline-flex min-h-[48px] items-center gap-2 rounded-full bg-abyss px-6 text-[15px] font-semibold text-white transition-colors hover:bg-intense">
+                      {a.name[lang]} <ArrowRight className="h-4 w-4" />
+                    </Link>
                     <Button to={to('contact')} variant="ghost">
                       {t.hero.ctaPrimary}
                     </Button>

@@ -240,3 +240,11 @@ export const practiceAreas: PracticeArea[] = [
     },
   },
 ]
+
+/** Metadatos SEO de cada página de área (SEO local: Tolosa, Gipuzkoa). */
+export function areaMeta(id: string, lang: Lang) {
+  const a = practiceAreas.find((x) => x.slug === id)!
+  return lang === 'eu'
+    ? { title: `${a.name.eu} Tolosan · Silvia Garrues Remírez, abokatua`, description: a.short.eu }
+    : { title: `${a.name.es} en Tolosa (Gipuzkoa) · Silvia Garrues Remírez, abogada`, description: a.short.es }
+}

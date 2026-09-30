@@ -50,3 +50,29 @@ export function langFromPath(pathname: string): Lang {
 }
 
 export const allRoutes = languages.flatMap((lang) => routeKeys.map((key) => ({ lang, key, path: paths[lang][key] })))
+
+/** Páginas propias por área de práctica (una URL por especialidad y por idioma). */
+export const areaSlug: Record<string, Record<Lang, string>> = {
+  divorcios: { es: 'divorcios-y-separaciones', eu: 'dibortzioak-eta-banantzeak' },
+  familia: { es: 'derecho-de-familia', eu: 'familia-zuzenbidea' },
+  herencias: { es: 'herencias-y-sucesiones', eu: 'jaraunspenak-eta-oinordetzak' },
+  penal: { es: 'derecho-penal', eu: 'zigor-zuzenbidea' },
+  violencia: { es: 'violencia-de-genero-y-domestica', eu: 'genero-eta-etxeko-indarkeria' },
+  mediacion: { es: 'mediacion', eu: 'bitartekaritza' },
+  civil: { es: 'derecho-civil', eu: 'zuzenbide-zibila' },
+  extranjeria: { es: 'extranjeria', eu: 'atzerritartasuna' },
+  laboral: { es: 'laboral-y-seguridad-social', eu: 'lana-eta-gizarte-segurantza' },
+  seguros: { es: 'seguros-y-trafico', eu: 'aseguruak-eta-trafikoa' },
+}
+
+export function areaPath(lang: Lang, id: string) {
+  return `${paths[lang].services}/${areaSlug[id][lang]}`
+}
+
+export function resolveArea(pathname: string): { lang: Lang; id: string } | null {
+  const clean = pathname.replace(/\/+$/, '')
+  for (const lang of languages) for (const id of Object.keys(areaSlug)) if (areaPath(lang, id) === clean) return { lang, id }
+  return null
+}
+
+export const allAreaRoutes = languages.flatMap((lang) => Object.keys(areaSlug).map((id) => ({ lang, id, path: areaPath(lang, id) })))

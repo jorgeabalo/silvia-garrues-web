@@ -36,7 +36,7 @@ export function ContactForm() {
       return
     }
     // Sin endpoint configurado: abre el correo con la consulta ya redactada.
-    const body = [`${f.name}: ${data.name}`, `${f.email}: ${data.email}`, `${f.phone}: ${data.phone || '—'}`, `${f.reason}: ${data.reason}`, '', data.message].join('\n')
+    const body = [`${f.name}: ${data.name}`, `${f.email}: ${data.email}`, `${f.phone}: ${data.phone || '—'}`, `${f.reason}: ${data.reason}`, '', data.message || ''].join('\n')
     window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(`${f.title} — ${data.reason}`)}&body=${encodeURIComponent(body)}`
     setStatus('mailto')
   }
@@ -60,6 +60,9 @@ export function ContactForm() {
   return (
     <form onSubmit={onSubmit} noValidate={false} className="rounded-[28px] border border-line bg-white p-6 shadow-soft sm:p-10" aria-describedby="form-disclaimer">
       <h3 className="text-2xl font-medium tracking-[-0.03em] text-ink">{f.title}</h3>
+      <p id="form-disclaimer" className="mt-4 rounded-2xl bg-mist px-4 py-3.5 text-[13.5px] leading-relaxed text-ink/75">
+        {f.disclaimer}
+      </p>
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         <label className="relative block sm:col-span-2">
           <input name="name" required autoComplete="name" placeholder={f.name} className={field} />
@@ -88,8 +91,8 @@ export function ContactForm() {
           <span className="pointer-events-none absolute left-4 top-2 text-[12px] font-medium text-ink/55">{f.reason} *</span>
         </label>
         <label className="relative block sm:col-span-2">
-          <textarea name="message" required rows={5} placeholder={f.message} className={`${field} resize-y`} />
-          <span className={labelCls}>{f.message} *</span>
+          <textarea name="message" rows={3} maxLength={400} placeholder={f.message} className={`${field} resize-y`} />
+          <span className={labelCls}>{f.message}</span>
         </label>
         <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
       </div>
@@ -105,9 +108,6 @@ export function ContactForm() {
         </span>
       </label>
 
-      <p id="form-disclaimer" className="mt-5 rounded-2xl bg-mist px-4 py-3.5 text-[13px] leading-relaxed text-ink/70">
-        {f.disclaimer}
-      </p>
       <p className="mt-3 text-[12px] leading-relaxed text-ink/50">{f.rgpd}</p>
 
       {status === 'error' && (

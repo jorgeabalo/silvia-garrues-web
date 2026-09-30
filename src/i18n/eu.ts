@@ -118,6 +118,7 @@ const eu: Dict = {
   },
 
   exp: {
+    discover: 'Ezagutu',
     label: 'Lehenik, elkarrizketa',
     hold: 'Eduki sakatuta sartzeko',
     holdShort: 'Sartu',
@@ -188,6 +189,10 @@ const eu: Dict = {
       {
         q: 'Zein hizkuntzatan ematen duzue arreta?',
         a: 'Gaztelaniaz, euskaraz eta ingelesez.',
+      },
+      {
+        q: 'Zenbat balio du eta nola ordaintzen da?',
+        a: 'Gaiaren motaren eta konplexutasunaren araberakoa da; horregatik ez dugu prezio itxirik argitaratzen. Hasi aurretik, ordainsariak nola kalkulatuko diren azaltzen dizugu eta, eskatzen baduzu, aurrekontua idatziz ematen dizugu. Transferentziaz edo Bizum bidez ordain dezakezu.',
       },
     ],
   },
@@ -308,7 +313,7 @@ const eu: Dict = {
       reason: 'Kontsultaren arrazoia',
       reasonPlaceholder: 'Hautatu arlo bat',
       other: 'Beste gai bat',
-      message: 'Mezua',
+      message: 'Mezu laburra (aukerakoa)',
       privacy: 'Irakurri eta onartzen dut',
       privacyLink: 'pribatutasun-politika',
       submit: 'Bidali kontsulta',
@@ -318,7 +323,7 @@ const eu: Dict = {
       error: 'Ezin izan da bidali. Idatzi zuzenean silvia@garrues.com helbidera.',
       required: 'Derrigorrezko eremua',
       disclaimer:
-        'Formulario hau bidaltzeak ez du abokatu-bezero harremanik sortzen, ezta enkargua onartzea ere. Mesedez, ez sartu informazio konfidentzialik zure gaiaz ardura gaitezkeela baieztatu arte.',
+        'Nor zaren, nola harremanetan jarri eta arloa jakitea besterik ez dugu behar. Mesedez, ez kontatu hemen zure kasuaren xehetasunik ezta datu sentikorrik ere (osasuna, adingabeak, salaketak): aurrez aurre hitz egingo dugu. Formularioa bidaltzeak ez du abokatu-bezero harremanik sortzen.',
       rgpd: 'Arduraduna: Silvia Garrues Remírez. Helburua: zure kontsultari erantzutea. Legitimazioa: zure baimena. Ez zaie daturik lagako hirugarrenei, legezko betebeharrik ez badago. Sartzeko, zuzentzeko eta ezabatzeko eskubideak erabil ditzakezu silvia@garrues.com helbidera idatzita.',
     },
   },
