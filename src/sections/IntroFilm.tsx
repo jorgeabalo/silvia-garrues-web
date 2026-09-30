@@ -131,7 +131,7 @@ export function IntroFilm() {
 
           {/* Silvia aparece */}
           <div className="i-silvia pointer-events-none absolute left-1/2 top-[8%] w-[20%] max-w-[170px] -translate-x-1/2">
-            <Photo name="silviaPortrait" ratio={1} sizes="170px" maxWidth={480} priority className="rounded-full shadow-[0_20px_50px_-15px_rgba(21,49,95,.45)] ring-4 ring-white" />
+            <Photo name="silviaDesk" ratio={1} sizes="340px" maxWidth={800} priority imgClassName="scale-[2] origin-[67%_30%]" className="rounded-full shadow-[0_20px_50px_-15px_rgba(21,49,95,.45)] ring-4 ring-white" />
           </div>
         </div>
 

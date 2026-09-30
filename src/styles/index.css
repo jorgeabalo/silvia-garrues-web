@@ -178,21 +178,14 @@
   .route-line, .route-line-v { transform: none; }
 }
 
-/* ——— Tratamiento fotográfico unificado: cálido, sereno, actual ———
-   Suaviza contrastes duros, baja la saturación, levanta sombras y da una
-   luz cálida común a fotos de épocas distintas. */
-.photo-grade img {
-  filter: saturate(0.8) contrast(0.93) brightness(1.06) sepia(0.07);
-}
+/* Tratamiento fotográfico: aplicado en las propias imágenes (scripts/grade-photos.py).
+   Aquí solo una luz cálida muy leve para unificar. */
 .photo-grade::after {
   content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background:
-    radial-gradient(120% 90% at 30% 10%, rgba(255, 240, 220, 0.22), transparent 60%),
-    linear-gradient(180deg, rgba(255, 248, 238, 0.06), rgba(21, 49, 95, 0.12));
-  mix-blend-mode: soft-light;
+  background: linear-gradient(180deg, rgba(255, 246, 232, 0.05), rgba(21, 49, 95, 0.06));
 }
 
 /* ——— Película introductoria (16 s) ——— */

@@ -14,7 +14,8 @@ const { render, allRoutes, paths, languages, htmlLang, dictionaries, site, pract
 
 const template = fs.readFileSync(path.join(dist, 'index.html'), 'utf8')
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;')
-const ogImage = photoUrl(photos.silviaDesk, 1200, 1200 / 630)
+const abs = (u) => (u.startsWith('/') ? site.url + u : u)
+const ogImage = abs(photoUrl(photos.silviaDesk, 1200, 1200 / 630))
 const heroByRoute = { home: 'silviaDesk', silvia: 'silviaStanding' }
 
 function jsonLd(lang, key) {
@@ -25,7 +26,7 @@ function jsonLd(lang, key) {
     '@id': `${site.url}/#silvia`,
     name: 'Silvia Garrues Remírez',
     jobTitle: t.hero.role,
-    image: photoUrl(photos.silviaPortrait, 800, 4 / 5),
+    image: abs(photoUrl(photos.silviaDesk, 800)),
     alumniOf: [
       { '@type': 'CollegeOrUniversity', name: 'University of Houston Law Center' },
       { '@type': 'CollegeOrUniversity', name: 'Universidad Nacional de Educación a Distancia' },
@@ -42,7 +43,7 @@ function jsonLd(lang, key) {
     email: site.email,
     telephone: site.phones.map((p) => p.href.replace('tel:', '')),
     image: ogImage,
-    logo: photoUrl(photos.logo, 480, 1),
+    logo: abs(photoUrl(photos.adosLogo, 800)),
     address: {
       '@type': 'PostalAddress',
       streetAddress: site.address.street,
@@ -103,8 +104,7 @@ function head(lang, key) {
     `<meta property="og:image:width" content="1200" />`,
     `<meta property="og:image:height" content="630" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
-    `<link rel="preconnect" href="https://static.wixstatic.com" crossorigin />`,
-    `<script type="application/ld+json">${jsonLd(lang, key)}</script>`,
+        `<script type="application/ld+json">${jsonLd(lang, key)}</script>`,
   ]
   const hero = heroByRoute[key]
   if (hero) {

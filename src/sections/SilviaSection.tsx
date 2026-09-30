@@ -15,10 +15,10 @@ export function SilviaSection() {
           <div className="relative lg:col-span-5">
             <div className="lg:sticky lg:top-10">
               <div className="reveal">
-                <Photo name="silviaPortrait" ratio={4 / 5} sizes="(min-width: 1024px) 40vw, 100vw" className="rounded-[30px] shadow-lift" />
+                <Photo name="silviaStanding" ratio={4 / 5} sizes="(min-width: 1024px) 40vw, 100vw" className="rounded-[30px] shadow-lift" />
               </div>
               <div className="reveal d2 absolute -bottom-10 -right-3 w-[42%] sm:-right-8 lg:-right-12">
-                <Photo name="silviaStanding" ratio={1} sizes="20vw" maxWidth={800} className="rounded-[22px] border-[6px] border-paper shadow-lift" />
+                <Photo name="silviaSeated" ratio={1} sizes="20vw" maxWidth={800} className="rounded-[22px] border-[6px] border-paper shadow-lift" />
               </div>
             </div>
           </div>

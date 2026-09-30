@@ -13,7 +13,7 @@ export function TopBar() {
       </a>
       <div className="page-x flex h-20 items-center justify-between">
         <Link to={to('home')} className="flex items-center gap-3" aria-label={t.ui.home}>
-          <Logo height={38} />
+          <Logo height={46} />
           <span className="hidden border-l border-line pl-3 text-[13px] font-medium tracking-[-0.01em] text-ink/80 md:block">
             Silvia Garrues Remírez <span className="text-ink/40">· {t.hero.role}</span>
           </span>

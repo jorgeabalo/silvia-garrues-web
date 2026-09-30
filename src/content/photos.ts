@@ -56,10 +56,10 @@ export const photos = {
   ulpiano: g('ulpiano', '870ea8_5abb47fa452e4ade88f0dc52994f7fa7~mv2.jpg', 1200, 1200, 'Busto clásico de Ulpiano, jurista romano', 'Ulpiano jurista erromatarraren bustoa', '50% 30%'),
 
   // — Silvia
-  silviaDesk: g('silviaDesk', '870ea8_6cc5c0e19d9f472e95d7c9dfb8989320~mv2.jpg', 1200, 900, 'Silvia Garrues Remírez en su despacho, junto a una balanza de la justicia', 'Silvia Garrues Remírez bere bulegoan, justiziaren balantzaren ondoan', '60% 30%'),
+  silviaDesk: g('silviaDesk', '870ea8_6cc5c0e19d9f472e95d7c9dfb8989320~mv2.jpg', 1200, 900, 'Silvia Garrues Remírez en su despacho, junto a una balanza de la justicia', 'Silvia Garrues Remírez bere bulegoan, justiziaren balantzaren ondoan', '66% 30%'),
   silviaPortrait: g('silviaPortrait', '870ea8_374b1799b45344eabbec39678e2ab5b5~mv2.jpg', 900, 1200, 'Retrato de Silvia Garrues Remírez', 'Silvia Garrues Remírezen erretratua', '50% 25%'),
   silviaRedFolder: g('silviaRedFolder', '870ea8_034263903187470a9636c3b2c6fa5f5a~mv2.jpg', 1000, 1000, 'Silvia Garrues Remírez con una carpeta roja', 'Silvia Garrues Remírez karpeta gorri batekin', '50% 30%'),
-  silviaStanding: g('silviaStanding', '870ea8_4533b07596c940dda55d5f3303aa2fa6~mv2.jpg', 1400, 1050, 'Silvia Garrues Remírez de pie junto a su mesa de trabajo', 'Silvia Garrues Remírez zutik bere lan-mahaiaren ondoan', '50% 30%'),
+  silviaStanding: g('silviaStanding', '870ea8_4533b07596c940dda55d5f3303aa2fa6~mv2.jpg', 1400, 1050, 'Silvia Garrues Remírez de pie junto a su mesa de trabajo', 'Silvia Garrues Remírez zutik bere lan-mahaiaren ondoan', '52% 35%'),
   silviaSeated: g('silviaSeated', '870ea8_47ecb20f77b245529f00fe5a331f0903~mv2.jpg', 800, 1100, 'Silvia Garrues Remírez sentada en el despacho', 'Silvia Garrues Remírez eserita bulegoan', '50% 30%'),
   silviaEntrance: g('silviaEntrance', '870ea8_5919a654a9ed4bc08624620351ba374f~mv2.jpg', 900, 1300, 'Silvia Garrues Remírez a la entrada de un edificio', 'Silvia Garrues Remírez eraikin baten sarreran', '50% 40%'),
   silviaStreet: g('silviaStreet', '870ea8_53f0411121d4492aba9d037c184002c6~mv2.jpg', 900, 1200, 'Silvia Garrues Remírez caminando frente a un edificio acristalado', 'Silvia Garrues Remírez beirazko eraikin baten aurrean oinez', '50% 40%'),
@@ -90,7 +90,7 @@ export type PhotoKey = keyof typeof photos
 
 /** Secuencia de la película fotográfica (marquee). Alterna Silvia · Tolosa · despacho. */
 export const marqueeSequence: PhotoKey[] = [
-  'silviaPortrait',
+  'silviaDesk',
   'meeting1',
   'officeWaiting',
   'silviaRedFolder',

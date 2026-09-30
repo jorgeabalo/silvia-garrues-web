@@ -7,7 +7,7 @@ export default function ContactPage() {
   return (
     <>
       <ContactSection asPage />
-      <PhotoMarquee label={t.film.label} items={['officeDoor', 'silviaPortrait', 'officeWaiting', 'meeting1', 'silviaRedFolder', 'officeDesk', 'silviaSeated', 'meeting2']} />
+      <PhotoMarquee label={t.film.label} items={['officeDoor', 'silviaStanding', 'officeWaiting', 'meeting1', 'silviaRedFolder', 'officeDesk', 'silviaSeated', 'meeting2']} />
       <div className="h-24" />
     </>
   )

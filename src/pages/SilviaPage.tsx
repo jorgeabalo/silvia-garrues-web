@@ -10,7 +10,7 @@ import type { PhotoKey } from '../content/photos'
 
 const chapterPhotos: PhotoKey[] = ['silviaEntrance', 'meeting3', 'officeWaiting']
 const gallery: { key: PhotoKey; cls: string; ratio: number }[] = [
-  { key: 'silviaPortrait', cls: 'col-span-6 lg:col-span-4', ratio: 4 / 5 },
+  { key: 'silviaDesk', cls: 'col-span-6 lg:col-span-4', ratio: 4 / 5 },
   { key: 'event', cls: 'col-span-6 lg:col-span-5 lg:mt-20', ratio: 4 / 3 },
   { key: 'withColleague', cls: 'col-span-6 lg:col-span-3', ratio: 3 / 4 },
   { key: 'meeting2', cls: 'col-span-6 lg:col-span-4 lg:-mt-10', ratio: 1 },

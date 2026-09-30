@@ -2,3 +2,4 @@ node_modules
 dist
 dist-ssr
 public/photos/*-original.*
+_photos-src
