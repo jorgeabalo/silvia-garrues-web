@@ -87,7 +87,7 @@ export default function AreaPage({ id }: { id: string }) {
               ))}
             </ul>
           </div>
-          <div className="reveal d2 lg:col-span-6">{a.photo || id !== 'violencia' ? <UrgentBox /> : null}</div>
+          <div className="reveal d2 lg:col-span-6">{a.photo || id !== 'violencia' ? <UrgentBox danger={id === 'violencia'} /> : null}</div>
         </div>
       </AnimatedSection>
 

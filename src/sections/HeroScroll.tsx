@@ -43,7 +43,7 @@ export function HeroScroll() {
     }
     if (l1.current) l1.current.style.transform = `translate3d(0, ${-e * vh * 0.35}px, 0)`
     if (l2.current) l2.current.style.transform = `translate3d(0, ${e * vh * 0.35}px, 0)`
-    if (portrait.current) portrait.current.style.opacity = String(1 - range(p, 0.18, 0.5))
+    if (portrait.current) portrait.current.style.clipPath = `inset(0 0 ${(ease(range(p, 0.06, 0.3)) * 100).toFixed(2)}% 0)`
     if (shade.current) shade.current.style.opacity = String(range(p, 0.4, 0.7))
     const s = range(p, 0.55, 0.8)
     if (statement.current) {
@@ -82,7 +82,7 @@ export function HeroScroll() {
               />
             </picture>
           </div>
-          <div ref={shade} className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/40 to-navy/10 opacity-0" />
+          <div ref={shade} className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/15 to-transparent opacity-0" />
 
           {/* Marco tipo cartel (como en Leome) */}
           <div ref={frame} className="absolute left-[5%] top-[20%] hidden w-[min(460px,36vw)] border border-ice/40 bg-navy/85 p-7 opacity-0 backdrop-blur-md md:block">

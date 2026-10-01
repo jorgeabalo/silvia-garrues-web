@@ -19,9 +19,9 @@ export interface PracticeArea {
 export const practiceAreas: PracticeArea[] = [
 {
     slug: 'divorcios',
+    photo: 'aiDivorcios',
     tier: 'main',
     featured: true,
-    photo: 'meeting2',
     name: { es: 'Divorcios y separaciones', eu: 'Dibortzioak eta banantzeak' },
     short: {
       es: 'Su especialidad. Hijos, casa, bienes y acuerdos: te acompaña de principio a fin, buscando el acuerdo y siempre firme en mantener tus derechos.',
@@ -50,8 +50,8 @@ export const practiceAreas: PracticeArea[] = [
   },
   {
     slug: 'familia',
+    photo: 'aiFamilia',
     tier: 'main',
-    photo: 'silviaSeated',
     name: { es: 'Derecho de familia', eu: 'Familia-zuzenbidea' },
     short: {
       es: 'Divorcios, separaciones, custodia de hijos, acuerdos prematrimoniales y revisión de acuerdos. Con cercanía y con firmeza.',
@@ -82,8 +82,8 @@ export const practiceAreas: PracticeArea[] = [
   },
   {
     slug: 'herencias',
+    photo: 'aiHerencias',
     tier: 'main',
-    photo: 'officeDesk',
     name: { es: 'Herencias y sucesiones', eu: 'Jaraunspenak eta oinordetzak' },
     short: {
       es: 'Asesoramiento jurídico y fiscal para resolver tu herencia de forma rápida y económica, desde el testamento hasta el reparto.',
@@ -96,8 +96,8 @@ export const practiceAreas: PracticeArea[] = [
   },
   {
     slug: 'penal',
+    photo: 'aiPenal',
     tier: 'main',
-    photo: 'courthouse',
     name: { es: 'Derecho penal', eu: 'Zigor-zuzenbidea' },
     short: {
       es: 'Asesoramiento y defensa legal en derecho penal y penal económico, incluido el compliance penal de la empresa.',
@@ -130,6 +130,7 @@ export const practiceAreas: PracticeArea[] = [
   },
   {
     slug: 'violencia',
+    photo: 'aiViolencia',
     tier: 'main',
     name: { es: 'Violencia de género y doméstica', eu: 'Genero-indarkeria eta etxeko indarkeria' },
     short: {
@@ -143,8 +144,8 @@ export const practiceAreas: PracticeArea[] = [
   },
   {
     slug: 'mediacion',
+    photo: 'aiMediacion',
     tier: 'other',
-    photo: 'meeting1',
     name: { es: 'Mediación', eu: 'Bitartekaritza' },
     short: {
       es: 'Un mecanismo reconocido para resolver conflictos mediante el diálogo, la escucha y la proposición. Más rápido, menos gravoso.',

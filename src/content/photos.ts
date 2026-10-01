@@ -13,7 +13,7 @@
  * automáticamente el modo local (sin depender de ningún CDN externo).
  */
 
-export type PhotoOrigin = 'garrues.com' | 'commons'
+export type PhotoOrigin = 'garrues.com' | 'commons' | 'ai'
 
 export interface Photo {
   id: string
@@ -48,7 +48,17 @@ const c = (id: string, file: string, w: number, h: number, es: string, eu: strin
   credit,
 })
 
+/** Imágenes de ambiente generadas con IA (sin personas reconocibles). No representan clientes reales. */
+const ai = (id: string, w: number, h: number, es: string, eu: string, focus?: string): Photo => ({ id, origin: 'ai', file: '', w, h, alt: { es, eu }, focus })
+
 export const photos = {
+  // — Ambiente (IA)
+  aiDivorcios: ai('aiDivorcios', 1456, 1088, 'Manos sobre una mesa junto a dos tazas de té y un documento', 'Eskuak mahai gainean, bi te-katilu eta dokumentu baten ondoan'),
+  aiFamilia: ai('aiFamilia', 1456, 1088, 'Un padre y su hijo paseando de la mano junto al mar', 'Aita eta semea eskutik helduta itsas ondoan paseatzen', '60% 50%'),
+  aiHerencias: ai('aiHerencias', 1456, 1088, 'Llave antigua, pluma y álbum familiar sobre un documento', 'Giltza zaharra, luma eta familia-albuma dokumentu baten gainean'),
+  aiPenal: ai('aiPenal', 1456, 1088, 'Columnas y escalinata de un palacio de justicia', 'Justizia-jauregi baten zutabeak eta eskailerak', '65% 50%'),
+  aiViolencia: ai('aiViolencia', 1456, 1088, 'Una mujer de espaldas mira por la ventana una mañana tranquila', 'Emakume bat bizkarrez, leihotik goiz lasai bati begira', '35% 40%'),
+  aiMediacion: ai('aiMediacion', 1920, 1080, 'Sala de mediación luminosa con mesa redonda', 'Bitartekaritza-gela argitsua mahai biribilarekin'),
   // — Identidad
   adosLogo: g('adosLogo', '870ea8_c429dce1ddc44970987090c2cf8e3b6f~mv2.png', 1181, 723, 'Logotipo de ADOS Abokatuak eta Bitartekariak', 'ADOS Abokatuak eta Bitartekariak logotipoa'),
   logo: g('logo', '870ea8_bcb0f3ec6f634401a14d7eaf0d323264~mv2.png', 1000, 1000, 'Logotipo de Silvia Garrues Remírez', 'Silvia Garrues Remírezen logotipoa'),

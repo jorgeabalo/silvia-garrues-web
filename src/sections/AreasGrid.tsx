@@ -34,11 +34,11 @@ function AreaCard({ id, i }: { id: string; i: number }) {
           <Photo
             name={a.photo}
             sizes="(min-width: 768px) 32vw, 100vw"
-            className="!absolute inset-0 -z-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100"
-            imgClassName="xp-duo scale-[1.06] transition-transform duration-[1.2s] group-hover:scale-100"
+            className="!absolute inset-0 -z-0 opacity-70 transition-opacity duration-700 group-hover:opacity-100"
+            imgClassName="scale-[1.06] transition-transform duration-[1.2s] group-hover:scale-100"
           />
         )}
-        <span className="absolute inset-0 bg-navy/60 opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
+        <span className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent" />
         <div className="relative flex items-start justify-between">
           <span className="text-[12px] text-ink/70">0{i + 1}</span>
           <span className="grid h-11 w-11 place-items-center bg-ice text-navy transition-transform duration-500 group-hover:rotate-45">
