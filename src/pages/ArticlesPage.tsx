@@ -37,7 +37,7 @@ export default function ArticlesPage() {
           <h2 className="kicker reveal">{t.articles.pressTitle}</h2>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
             {press.map((x, i) => (
-              <a key={x.url} href={x.url} target="_blank" rel="noopener noreferrer" className={`reveal ${['d1', 'd2', 'd3', 'd4'][i]} group rounded-[26px] bg-abyss p-8 text-white transition-transform duration-700 hover:-translate-y-1 sm:p-10`}>
+              <a key={x.url} href={x.url} target="_blank" rel="noopener noreferrer" className={`reveal ${['d1', 'd2', 'd3', 'd4'][i]} group rounded-[6px] border border-line bg-cream p-8 text-white transition-transform duration-700 hover:-translate-y-1 sm:p-10`}>
                 <p className="text-[12px] uppercase tracking-[0.18em] text-haze">
                   {x.outlet} · <time dateTime={x.date}>{formatDate(x.date, lang)}</time>
                 </p>
@@ -74,7 +74,7 @@ export default function ArticlesPage() {
                 type="button"
                 onClick={() => setFilter(a)}
                 aria-pressed={filter === a}
-                className={`min-h-[40px] rounded-full px-4 text-[14px] transition-colors ${filter === a ? 'bg-abyss text-white' : 'border border-line bg-white text-ink/70 hover:border-ink/40'}`}
+                className={`min-h-[40px] rounded-full px-4 text-[14px] transition-colors ${filter === a ? 'bg-abyss text-navy' : 'border border-line bg-cream text-ink/70 hover:border-ink/40'}`}
               >
                 {a ?? p.filterAll}
               </button>

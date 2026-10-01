@@ -27,10 +27,10 @@ export default function SilviaPage() {
       <PageHero kicker={p.kicker} title={p.title} intro={p.intro}>
         <div className="mt-14 grid grid-cols-12 gap-4 sm:gap-6">
           <div className="reveal d2 col-span-12 sm:col-span-8">
-            <Photo name="silviaStanding" priority sizes="(min-width: 640px) 66vw, 100vw" className="aspect-[4/5] rounded-[30px] shadow-lift sm:aspect-[16/11]" />
+            <Photo name="silviaStanding" priority sizes="(min-width: 640px) 66vw, 100vw" className="aspect-[4/5] rounded-[6px] shadow-lift sm:aspect-[16/11]" />
           </div>
           <div className="reveal d3 col-span-12 flex flex-col justify-end gap-6 sm:col-span-4">
-            <div className="rounded-[26px] bg-white p-7 shadow-soft">
+            <div className="rounded-[6px] bg-cream p-7 shadow-soft">
               <p className="kicker">{p.bars}</p>
               <ul className="mt-4 space-y-2 text-[16px] leading-snug">
                 {p.barsList.map((b) => (
@@ -40,7 +40,7 @@ export default function SilviaPage() {
               <p className="kicker mt-7">{p.languages}</p>
               <p className="mt-3 font-serif text-3xl italic text-abyss">{p.languagesList.join(' · ')}</p>
             </div>
-            <Photo name="silviaSeated" ratio={4 / 5} sizes="33vw" maxWidth={800} className="hidden rounded-[26px] sm:block" />
+            <Photo name="silviaSeated" ratio={4 / 5} sizes="33vw" maxWidth={800} className="hidden rounded-[6px] sm:block" />
           </div>
         </div>
       </PageHero>
@@ -54,7 +54,7 @@ export default function SilviaPage() {
             {s.chapters.map((c, i) => (
               <AnimatedSection as="article" key={c.title} className={`grid items-center gap-8 lg:grid-cols-12 lg:gap-16`}>
                 <div className={`reveal lg:col-span-6 ${i % 2 ? 'lg:order-2' : ''}`}>
-                  <Photo name={chapterPhotos[i]} ratio={i % 2 ? 4 / 3 : 4 / 5} sizes="(min-width: 1024px) 50vw, 100vw" className="rounded-[28px] shadow-soft" />
+                  <Photo name={chapterPhotos[i]} ratio={i % 2 ? 4 / 3 : 4 / 5} sizes="(min-width: 1024px) 50vw, 100vw" className="rounded-[6px] shadow-soft" />
                 </div>
                 <div className="lg:col-span-6">
                   <p className="reveal d1 font-serif text-7xl italic text-intense/25 sm:text-8xl">{String(i + 1).padStart(2, '0')}</p>
@@ -92,7 +92,7 @@ export default function SilviaPage() {
           {gallery.map((g, i) => (
             <div key={g.key} className={`${g.cls}`}>
               <div className={`reveal ${['d1', 'd2', 'd3', 'd4'][i % 4]}`}>
-                <Photo name={g.key} ratio={g.ratio} sizes="(min-width: 1024px) 33vw, 50vw" maxWidth={1200} className="rounded-[24px]" imgClassName="hover:scale-[1.03]" />
+                <Photo name={g.key} ratio={g.ratio} sizes="(min-width: 1024px) 33vw, 50vw" maxWidth={1200} className="rounded-[6px]" imgClassName="hover:scale-[1.03]" />
               </div>
             </div>
           ))}

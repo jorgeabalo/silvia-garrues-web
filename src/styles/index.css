@@ -1,6 +1,4 @@
-@import '@fontsource-variable/inter-tight/index.css';
-@import '@fontsource/instrument-serif/400.css';
-@import '@fontsource/instrument-serif/400-italic.css';
+@import '@fontsource-variable/manrope/index.css';
 
 @tailwind base;
 @tailwind components;
@@ -21,14 +19,15 @@
     overflow-x: clip;
   }
   body {
-    font-feature-settings: 'ss01', 'cv11';
+    background: #071a33;
+    color: #e4eeff;
   }
   ::selection {
-    background: #2a5bc4;
-    color: #fff;
+    background: #a9d1ff;
+    color: #071a33;
   }
   :focus-visible {
-    outline: 2px solid #2a5bc4;
+    outline: 2px solid #a9d1ff;
     outline-offset: 3px;
     border-radius: 6px;
   }
@@ -53,14 +52,13 @@
     line-height: 0.98;
   }
   .serif-accent {
-    @apply font-serif font-normal italic;
-    letter-spacing: -0.01em;
+    @apply font-medium not-italic text-ice;
   }
   .prose-lede {
     @apply text-[17px] leading-[1.7] text-ink/75 sm:text-lg;
   }
   .glass {
-    background: rgba(255, 255, 255, 0.72);
+    background: rgba(10, 33, 64, 0.78);
     backdrop-filter: saturate(1.6) blur(18px);
     -webkit-backdrop-filter: saturate(1.6) blur(18px);
   }
@@ -70,7 +68,7 @@
     -webkit-backdrop-filter: saturate(1.4) blur(18px);
   }
   .photo-skeleton {
-    background: linear-gradient(120deg, #e3eaf4 0%, #f1f5fa 45%, #dfe7f2 100%);
+    background: linear-gradient(120deg, #0c2547 0%, #11305a 45%, #0c2547 100%);
   }
 }
 

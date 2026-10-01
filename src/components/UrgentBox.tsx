@@ -9,12 +9,12 @@ export function UrgentBox({ danger = false, className = '' }: { danger?: boolean
   const c = copy[lang]
   const mobile = site.phones[1]
   return (
-    <aside className={`rounded-[26px] bg-abyss p-7 text-white sm:p-9 ${className}`} aria-label={c.urgentTitle}>
+    <aside className={`rounded-[6px] border border-line bg-mist p-7 text-white sm:p-9 ${className}`} aria-label={c.urgentTitle}>
       <p className="text-2xl font-medium tracking-[-0.03em]">{c.urgentTitle}</p>
       <p className="mt-2 max-w-md text-[15px] leading-relaxed text-white/70">{c.urgentText}</p>
       <div className="mt-5 flex flex-wrap gap-3">
         {[mobile, site.phones[0]].map((p) => (
-          <a key={p.href} href={p.href} className="inline-flex min-h-[48px] items-center gap-2 rounded-full bg-white px-5 text-[15px] font-semibold text-abyss transition-colors hover:bg-haze">
+          <a key={p.href} href={p.href} className="inline-flex min-h-[48px] items-center gap-2 rounded-full bg-ice px-5 text-[15px] font-semibold text-navy transition-colors hover:bg-haze">
             <Phone className="h-4 w-4" /> {p.label}
           </a>
         ))}

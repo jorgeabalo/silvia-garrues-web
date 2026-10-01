@@ -24,7 +24,7 @@ export function SpecialtiesSection() {
             <Link
               key={a.slug}
               to={toArea(a.slug)}
-              className={`reveal ${['', 'd1', 'd2', 'd3', 'd4'][i]} group relative isolate flex flex-col justify-end overflow-hidden rounded-[28px] bg-abyss p-7 text-white shadow-soft sm:p-9 ${layout[i]}`}
+              className={`reveal ${['', 'd1', 'd2', 'd3', 'd4'][i]} group relative isolate flex flex-col justify-end overflow-hidden rounded-[6px] bg-abyss p-7 text-navy shadow-soft sm:p-9 ${layout[i]}`}
             >
               {a.photo ? (
                 <Photo name={a.photo} sizes={i === 0 ? '(min-width: 1024px) 58vw, 100vw' : '(min-width: 1024px) 42vw, 100vw'} className="xp-duo !absolute inset-0 -z-10 h-full w-full" grade={false} imgClassName="transition-transform duration-[1.4s] group-hover:scale-[1.05]" />
@@ -39,7 +39,7 @@ export function SpecialtiesSection() {
               <p className={`mt-4 max-w-lg text-[15.5px] leading-[1.65] text-white/75 ${i === 0 ? '' : 'line-clamp-3'}`}>{a.short[lang]}</p>
               <span className="mt-6 inline-flex items-center gap-2 text-[14px] font-semibold">
                 {t.ui.readMore}
-                <span className="grid h-9 w-9 place-items-center rounded-full bg-white text-night transition-transform duration-500 group-hover:rotate-45">
+                <span className="grid h-9 w-9 place-items-center rounded-full bg-ice text-navy transition-transform duration-500 group-hover:rotate-45">
                   <ArrowUpRight className="h-4 w-4" />
                 </span>
               </span>
@@ -50,7 +50,7 @@ export function SpecialtiesSection() {
         <AnimatedSection as="div" className="mt-8 flex flex-wrap items-center gap-2">
           <span className="reveal mr-2 text-[14px] text-ink/55">{t.specialties.others}</span>
           {others.map((a, i) => (
-            <Link key={a.slug} to={toArea(a.slug)} className={`reveal ${['d1', 'd2', 'd3', 'd4'][i % 4]} rounded-full border border-line bg-white px-4 py-2 text-[14px] text-ink/75 transition-colors hover:border-abyss hover:text-abyss`}>
+            <Link key={a.slug} to={toArea(a.slug)} className={`reveal ${['d1', 'd2', 'd3', 'd4'][i % 4]} rounded-full border border-line bg-cream px-4 py-2 text-[14px] text-ink/75 transition-colors hover:border-ice hover:text-ice`}>
               {a.name[lang]}
             </Link>
           ))}

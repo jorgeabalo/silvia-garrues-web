@@ -16,13 +16,13 @@ export function LanguageSelector({ tone = 'dark', className = '' }: { tone?: 'da
             lang={l}
             aria-current={l === lang ? 'true' : undefined}
             title={t.ui.langNames[l]}
-            className={`rounded-full px-2.5 py-1.5 uppercase transition-colors ${
+            className={`rounded-[4px] px-2.5 py-1.5 uppercase transition-colors ${
               l === lang
                 ? tone === 'light'
-                  ? 'bg-white text-abyss'
-                  : 'bg-abyss text-white'
+                  ? 'bg-ice text-navy'
+                  : 'bg-abyss text-navy'
                 : tone === 'light'
-                  ? 'text-white/70 hover:text-white'
+                  ? 'text-ink/60 hover:text-ice'
                   : 'text-ink/60 hover:text-ink'
             }`}
           >

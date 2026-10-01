@@ -46,7 +46,7 @@ export function Hero() {
         <div className="grid grid-cols-12 items-center gap-4 lg:gap-6">
           <div className="col-span-3 hidden translate-y-16 lg:block">
             <div className="reveal d3">
-              <Photo name="silviaRedFolder" ratio={4 / 5} sizes="25vw" maxWidth={800} className="rounded-[26px] shadow-soft" />
+              <Photo name="silviaRedFolder" ratio={4 / 5} sizes="25vw" maxWidth={800} className="rounded-[6px] shadow-soft" />
             </div>
           </div>
           <figure className="col-span-12 lg:col-span-6">
@@ -55,14 +55,14 @@ export function Hero() {
                 name="silviaDesk"
                 priority
                 sizes="(min-width: 1024px) 50vw, 100vw"
-                className="aspect-[4/5] rounded-[30px] shadow-lift sm:aspect-[16/11]"
+                className="aspect-[4/5] rounded-[6px] shadow-lift sm:aspect-[16/11]"
               />
             </div>
             <figcaption className="reveal d4 mt-4 text-[13px] text-ink/50">{h.photoCaption}</figcaption>
           </figure>
           <div className="col-span-3 hidden -translate-y-10 lg:block">
             <div className="reveal d4">
-              <Photo name="officeWaiting" ratio={3 / 4} sizes="25vw" maxWidth={800} className="rounded-[26px] shadow-soft" />
+              <Photo name="officeWaiting" ratio={3 / 4} sizes="25vw" maxWidth={800} className="rounded-[6px] shadow-soft" />
             </div>
           </div>
         </div>

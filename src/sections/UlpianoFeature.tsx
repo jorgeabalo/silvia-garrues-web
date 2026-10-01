@@ -8,9 +8,9 @@ export function UlpianoFeature() {
   const { t } = useI18n()
   const u = t.ulpiano
   return (
-    <AnimatedSection as="figure" className="grid items-center gap-10 overflow-hidden rounded-[32px] bg-white p-5 shadow-soft sm:p-8 lg:grid-cols-12 lg:gap-16 lg:p-10">
+    <AnimatedSection as="figure" className="grid items-center gap-10 overflow-hidden rounded-[6px] bg-cream p-5 shadow-soft sm:p-8 lg:grid-cols-12 lg:gap-16 lg:p-10">
       <div className="reveal lg:col-span-5">
-        <Photo name="ulpiano" ratio={1} sizes="(min-width: 1024px) 40vw, 100vw" maxWidth={1200} className="rounded-[24px] grayscale-[35%]" />
+        <Photo name="ulpiano" ratio={1} sizes="(min-width: 1024px) 40vw, 100vw" maxWidth={1200} className="rounded-[6px] grayscale-[35%]" />
       </div>
       <div className="px-2 pb-4 lg:col-span-7 lg:px-0 lg:pb-0">
         <p className="kicker reveal">{u.kicker}</p>

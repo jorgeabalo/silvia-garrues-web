@@ -10,7 +10,7 @@ export function PracticeCard({ area, index, className = '' }: { area: PracticeAr
   return (
     <Link
       to={toArea(area.slug)}
-      className={`group relative flex flex-col overflow-hidden rounded-[28px] border border-line bg-white p-6 shadow-soft transition-all duration-700 ease-[cubic-bezier(.16,1,.3,1)] hover:-translate-y-1.5 hover:border-transparent hover:shadow-lift sm:p-8 ${className}`}
+      className={`group relative flex flex-col overflow-hidden rounded-[6px] border border-line bg-cream p-6 shadow-soft transition-all duration-700 ease-[cubic-bezier(.16,1,.3,1)] hover:-translate-y-1.5 hover:border-transparent hover:shadow-lift sm:p-8 ${className}`}
     >
       {featured && (
         <Photo
@@ -33,7 +33,7 @@ export function PracticeCard({ area, index, className = '' }: { area: PracticeAr
           <ArrowUpRight className="h-4 w-4 transition-transform duration-500 group-hover:rotate-45" strokeWidth={1.8} />
         </span>
       </span>
-      <span className="pointer-events-none absolute inset-0 rounded-[28px] bg-gradient-to-br from-intense/[0.04] via-transparent to-atlantic/[0.06] opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
+      <span className="pointer-events-none absolute inset-0 rounded-[6px] bg-gradient-to-br from-intense/[0.04] via-transparent to-atlantic/[0.06] opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
     </Link>
   )
 }

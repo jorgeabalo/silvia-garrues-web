@@ -17,19 +17,18 @@ export function ArticleCard({ article, size = 'md', className = '' }: { article:
             ratio={4 / 3}
             sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
             maxWidth={1200}
-            className="mb-6 rounded-[22px]"
+            className="mb-5"
             imgClassName="group-hover:scale-[1.04]"
           />
         )}
-        <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[12px] font-semibold uppercase tracking-[0.16em] text-atlantic">
-          <span>{article.area[lang]}</span>
-          <span className="h-1 w-1 rounded-full bg-atlantic/40" />
-          <time dateTime={article.date} className="font-medium normal-case tracking-normal text-ink/50">
+        <p className="flex flex-wrap items-center gap-2 text-[10.5px] font-medium uppercase tracking-[0.08em] text-ink/80">
+          <span className="bg-mist px-2 py-1">{article.area[lang]}</span>
+          <time dateTime={article.date} className="bg-mist px-2 py-1">
             {formatDate(article.date, lang)}
           </time>
           {foreign && <span className="rounded-full bg-mist px-2 py-0.5 text-[10px] tracking-[0.12em] text-ink/60">{t.ui.originalLang[article.lang]}</span>}
         </p>
-        <h3 lang={article.lang} className={`mt-3 font-medium tracking-[-0.03em] text-ink transition-colors group-hover:text-intense ${size === 'md' ? 'text-[1.45rem] leading-[1.15]' : 'text-[1.15rem] leading-[1.25]'}`}>
+        <h3 lang={article.lang} className={`mt-3 font-medium tracking-[-0.03em] text-ink transition-colors group-hover:text-ice ${size === 'md' ? 'text-[1.45rem] leading-[1.15]' : 'text-[1.15rem] leading-[1.25]'}`}>
           {sentence(article.title)}
         </h3>
         {new Date().getFullYear() - Number(article.date.slice(0, 4)) >= 2 && (

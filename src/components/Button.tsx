@@ -5,14 +5,14 @@ import { ArrowUpRight } from 'lucide-react'
 type Variant = 'primary' | 'ghost' | 'light' | 'outline-light' | 'link'
 
 const base =
-  'group inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full text-[15px] font-medium tracking-[-0.01em] transition-all duration-500 ease-[cubic-bezier(.16,1,.3,1)] focus-visible:outline-offset-4'
+  'group inline-flex min-h-[48px] items-center justify-center gap-2 rounded-[4px] text-[15px] font-medium tracking-[-0.01em] transition-all duration-500 ease-[cubic-bezier(.16,1,.3,1)] focus-visible:outline-offset-4'
 
 const variants: Record<Variant, string> = {
-  primary: 'bg-abyss px-6 text-white shadow-[0_10px_30px_-10px_rgba(10,30,66,.6)] hover:bg-intense hover:shadow-[0_16px_40px_-12px_rgba(30,79,214,.7)]',
-  ghost: 'border border-ink/15 bg-white/60 px-6 text-ink hover:border-ink/40 hover:bg-white',
-  light: 'bg-white px-7 text-abyss hover:bg-mist',
+  primary: 'bg-ice px-6 font-semibold text-navy hover:bg-white',
+  ghost: 'border border-line px-6 text-ink hover:border-ice hover:text-ice',
+  light: 'bg-ice px-7 font-semibold text-navy hover:bg-white',
   'outline-light': 'border border-white/30 px-6 text-white hover:border-white hover:bg-white/10',
-  link: 'min-h-0 gap-1.5 px-0 text-ink underline-offset-4 hover:text-intense',
+  link: 'min-h-0 gap-1.5 px-0 text-ink underline decoration-line underline-offset-8 hover:text-ice hover:decoration-ice',
 }
 
 interface Props {

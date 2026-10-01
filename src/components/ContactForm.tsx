@@ -42,14 +42,14 @@ export function ContactForm() {
   }
 
   const field =
-    'peer w-full rounded-2xl border border-line bg-white px-4 pb-3 pt-6 text-[16px] text-ink outline-none transition-[border,box-shadow] duration-300 placeholder:text-transparent focus:border-intense focus:shadow-[0_0_0_4px_rgba(30,79,214,.12)]'
+    'peer w-full rounded-2xl border border-line bg-cream px-4 pb-3 pt-6 text-[16px] text-ink outline-none transition-[border,box-shadow] duration-300 placeholder:text-transparent focus:border-intense focus:shadow-[0_0_0_4px_rgba(30,79,214,.12)]'
   const labelCls =
     'pointer-events-none absolute left-4 top-2 text-[12px] font-medium text-ink/55 transition-all duration-300 peer-placeholder-shown:top-[18px] peer-placeholder-shown:text-[15px] peer-focus:top-2 peer-focus:text-[12px] peer-focus:text-intense'
 
   if (status === 'sent' || status === 'mailto') {
     return (
-      <div role="status" className="flex flex-col items-start gap-5 rounded-[28px] border border-line bg-white p-8 shadow-soft sm:p-10">
-        <span className="grid h-12 w-12 place-items-center rounded-full bg-intense text-white">
+      <div role="status" className="flex flex-col items-start gap-5 rounded-[6px] border border-line bg-cream p-8 shadow-soft sm:p-10">
+        <span className="grid h-12 w-12 place-items-center rounded-full bg-intense text-navy">
           <Check className="h-6 w-6" />
         </span>
         <p className="text-xl leading-snug tracking-[-0.02em] text-ink">{status === 'sent' ? f.success : f.mailto}</p>
@@ -58,7 +58,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} noValidate={false} className="rounded-[28px] border border-line bg-white p-6 shadow-soft sm:p-10" aria-describedby="form-disclaimer">
+    <form onSubmit={onSubmit} noValidate={false} className="rounded-[6px] border border-line bg-cream p-6 shadow-soft sm:p-10" aria-describedby="form-disclaimer">
       <h3 className="text-2xl font-medium tracking-[-0.03em] text-ink">{f.title}</h3>
       <p id="form-disclaimer" className="mt-4 rounded-2xl bg-mist px-4 py-3.5 text-[13.5px] leading-relaxed text-ink/75">
         {f.disclaimer}

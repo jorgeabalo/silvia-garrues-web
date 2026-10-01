@@ -1,24 +1,23 @@
-import { HomeExperience } from '../sections/HomeExperience'
-import { StatsBand } from '../sections/StatsBand'
+import { HeroScroll } from '../sections/HeroScroll'
+import { AreasGrid } from '../sections/AreasGrid'
+import { TeamStatement } from '../sections/TeamStatement'
 import { DivorceSection } from '../sections/DivorceSection'
-import { SilviaSection } from '../sections/SilviaSection'
-import { PressSection, TestimonialsSection } from '../sections/PressSection'
+import { PressSection } from '../sections/PressSection'
 import { FaqSection } from '../sections/FaqSection'
 import { ArticlesSection } from '../sections/ArticlesSection'
 import { ContactSection } from '../sections/ContactSection'
-import { SpecialtiesSection } from '../sections/SpecialtiesSection'
 
 export default function HomePage() {
   return (
     <>
-      <HomeExperience />
-      <StatsBand />
-      <SpecialtiesSection />
-      <DivorceSection />
-      <SilviaSection />
-      <PressSection />
-      <TestimonialsSection />
+      <HeroScroll />
+      <AreasGrid />
+      <TeamStatement />
+      <div className="pt-24 sm:pt-32">
+        <DivorceSection />
+      </div>
       <FaqSection />
+      <PressSection />
       <ArticlesSection />
       <ContactSection />
     </>

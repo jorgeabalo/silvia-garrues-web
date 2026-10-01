@@ -38,7 +38,7 @@ export function IntroFilm({ embedded = false, onCta }: { embedded?: boolean; onC
   }
 
   return (
-    <section aria-label={i.label} className={`relative flex flex-col overflow-hidden bg-gradient-to-b from-cream via-paper to-paper ${embedded ? 'min-h-[min(88svh,760px)] rounded-[28px] pb-16 pt-10' : 'min-h-[100svh] pb-28 pt-20'}`}>
+    <section aria-label={i.label} className={`relative flex flex-col overflow-hidden bg-gradient-to-b from-cream via-paper to-paper ${embedded ? 'min-h-[min(88svh,760px)] rounded-[6px] pb-16 pt-10' : 'min-h-[100svh] pb-28 pt-20'}`}>
       <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_50%_at_50%_0%,rgba(42,91,196,.10),transparent_70%)]" />
 
       <div key={run} className={`intro relative mx-auto flex w-full max-w-[1100px] flex-1 flex-col justify-center px-3 ${skipped ? 'intro-skip' : ''}`}>
@@ -158,11 +158,11 @@ export function IntroFilm({ embedded = false, onCta }: { embedded?: boolean; onC
       {/* Controles */}
       <div className={`absolute z-10 ${embedded ? 'bottom-4 right-4' : 'bottom-24 right-4 sm:bottom-8 sm:right-8'}`}>
         {ended ? (
-          <button type="button" onClick={replay} className="inline-flex min-h-[40px] items-center gap-2 rounded-full border border-ink/10 bg-white/80 px-4 text-[13px] font-medium text-ink/70 backdrop-blur hover:text-ink">
+          <button type="button" onClick={replay} className="inline-flex min-h-[40px] items-center gap-2 rounded-full border border-ink/10 bg-cream/80 px-4 text-[13px] font-medium text-ink/70 backdrop-blur hover:text-ink">
             <RotateCcw className="h-3.5 w-3.5" /> {i.replay}
           </button>
         ) : (
-          <button type="button" onClick={skip} className="inline-flex min-h-[40px] items-center gap-2 rounded-full border border-ink/10 bg-white/80 px-4 text-[13px] font-medium text-ink/70 backdrop-blur hover:text-ink">
+          <button type="button" onClick={skip} className="inline-flex min-h-[40px] items-center gap-2 rounded-full border border-ink/10 bg-cream/80 px-4 text-[13px] font-medium text-ink/70 backdrop-blur hover:text-ink">
             <SkipForward className="h-3.5 w-3.5" /> {i.skip}
           </button>
         )}

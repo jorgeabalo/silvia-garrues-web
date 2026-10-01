@@ -25,7 +25,7 @@ export function PhotoMarquee({ items = marqueeSequence, label }: { items?: Photo
               ratio={s.ratio}
               sizes="(min-width: 640px) 440px, 78vw"
               maxWidth={1200}
-              className="rounded-[22px] shadow-[0_18px_40px_-24px_rgba(10,30,66,.35)] sm:rounded-[28px]"
+              className="rounded-[6px] shadow-[0_18px_40px_-24px_rgba(10,30,66,.35)] sm:rounded-[6px]"
               imgClassName="transition-transform duration-[1.2s] hover:scale-[1.04]"
             />
           </li>

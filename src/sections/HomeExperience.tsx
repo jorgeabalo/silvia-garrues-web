@@ -108,7 +108,7 @@ export function HomeExperience() {
             <div key={s.id} aria-hidden className={`xp-bg xp-soft absolute inset-0 -z-20 ${i === index ? 'is-active' : ''}`}>
               {/* Retrato de Silvia en color sobre azul suave, enmarcado en arco */}
               <div className="xp-portrait absolute left-1/2 top-24 h-[42%] -translate-x-1/2 sm:left-auto sm:right-[6%] sm:top-1/2 sm:h-[74%] sm:-translate-y-[46%] sm:translate-x-0 lg:right-[9%]">
-                <picture className="block h-full overflow-hidden rounded-[32px] shadow-[0_40px_90px_-30px_rgba(10,30,70,.55)] ring-1 ring-white/40" style={{ aspectRatio: '920 / 1150' }}>
+                <picture className="block h-full overflow-hidden rounded-[6px] shadow-[0_40px_90px_-30px_rgba(10,30,70,.55)] ring-1 ring-white/40" style={{ aspectRatio: '920 / 1150' }}>
                   <source type="image/avif" srcSet="/photos/silviaRetrato-480.avif 480w, /photos/silviaRetrato-920.avif 920w" sizes="(min-width: 640px) 40vw, 60vw" />
                   <img
                     src="/photos/silviaRetrato-920.webp"
@@ -145,7 +145,7 @@ export function HomeExperience() {
         {/* Contador */}
         <div className="absolute left-1/2 top-24 -translate-x-1/2 text-[12px] font-medium tracking-[0.3em] lg:top-28" aria-live="polite">
           <span className="text-white">{pad(index)}</span>
-          <span className="mx-3 inline-block h-px w-10 translate-y-[-3px] bg-white/40" />
+          <span className="mx-3 inline-block h-px w-10 translate-y-[-3px] bg-cream/40" />
           <span className="text-white/80">{pad(n - 1)}</span>
         </div>
 
@@ -183,7 +183,7 @@ export function HomeExperience() {
                   <div className="xp-cta mt-9 flex flex-wrap items-center gap-4">
                     {i === 0 ? (
                       <>
-                        <Link to={to('contact')} tabIndex={active ? 0 : -1} className="inline-flex min-h-[52px] items-center border-l-[3px] border-sky bg-white px-8 text-[13px] font-semibold uppercase tracking-[0.22em] text-night transition-colors hover:bg-haze">
+                        <Link to={to('contact')} tabIndex={active ? 0 : -1} className="inline-flex min-h-[52px] items-center border-l-[3px] border-sky bg-ice px-8 text-[13px] font-semibold uppercase tracking-[0.22em] text-navy transition-colors hover:bg-haze">
                           {t.ui.book}
                         </Link>
                         <button type="button" onClick={next} tabIndex={active ? 0 : -1} className="group inline-flex min-h-[52px] items-center gap-3 text-[13px] font-semibold uppercase tracking-[0.22em] text-white/90 hover:text-white">
@@ -194,7 +194,7 @@ export function HomeExperience() {
                         </button>
                       </>
                     ) : (
-                      <Link to={s.href} tabIndex={active ? 0 : -1} className="inline-flex min-h-[52px] items-center border-l-[3px] border-sky bg-white px-8 text-[13px] font-semibold uppercase tracking-[0.22em] text-night transition-colors hover:bg-haze">
+                      <Link to={s.href} tabIndex={active ? 0 : -1} className="inline-flex min-h-[52px] items-center border-l-[3px] border-sky bg-ice px-8 text-[13px] font-semibold uppercase tracking-[0.22em] text-navy transition-colors hover:bg-haze">
                         {s.cta}
                       </Link>
                     )}
@@ -230,7 +230,7 @@ export function HomeExperience() {
               aria-current={i === index ? 'step' : undefined}
               className={`group flex flex-col items-start gap-2 text-left text-[10.5px] font-medium uppercase tracking-[0.22em] transition-colors ${i === index ? 'text-white' : 'text-white/40 hover:text-white/80'}`}
             >
-              <span className="relative block h-px w-16 overflow-hidden bg-white/20">
+              <span className="relative block h-px w-16 overflow-hidden bg-cream/20">
                 <span className={`absolute inset-0 origin-left bg-sky transition-transform duration-700 ${i === index ? 'scale-x-100' : 'scale-x-0'}`} />
               </span>
               <span>

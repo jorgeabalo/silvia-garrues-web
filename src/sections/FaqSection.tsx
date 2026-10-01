@@ -30,7 +30,7 @@ export function FaqSection({ items, title, id = 'preguntas' }: { items?: { q: st
                     className="flex w-full items-start justify-between gap-6 py-6 text-left text-[1.2rem] font-medium leading-snug tracking-[-0.02em] text-ink transition-colors hover:text-intense sm:text-[1.35rem]"
                   >
                     {it.q}
-                    <span className={`mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-full border border-line transition-all duration-500 ${isOpen ? 'rotate-45 border-abyss bg-abyss text-white' : 'text-ink'}`}>
+                    <span className={`mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-full border border-line transition-all duration-500 ${isOpen ? 'rotate-45 border-abyss bg-abyss text-navy' : 'text-ink'}`}>
                       <Plus className="h-4 w-4" />
                     </span>
                   </button>

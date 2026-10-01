@@ -51,7 +51,7 @@ export default function AreaPage({ id }: { id: string }) {
           </div>
           <div className="reveal d2 lg:col-span-5">
             {a.photo ? (
-              <Photo name={a.photo} ratio={4 / 3} sizes="(min-width: 1024px) 40vw, 100vw" className="rounded-[26px]" />
+              <Photo name={a.photo} ratio={4 / 3} sizes="(min-width: 1024px) 40vw, 100vw" className="rounded-[6px]" />
             ) : (
               <UrgentBox danger={id === 'violencia'} />
             )}
@@ -64,7 +64,7 @@ export default function AreaPage({ id }: { id: string }) {
           <SectionTitle title={c.howTitle} />
           <ol className={`mt-12 grid gap-4 md:grid-cols-2 ${steps.length === 4 ? 'lg:grid-cols-4' : 'lg:grid-cols-3'}`}>
             {steps.map((s, i) => (
-              <li key={s.title} className={`reveal ${['d1', 'd2', 'd3', 'd4'][i]} rounded-[26px] border border-line bg-white p-7`}>
+              <li key={s.title} className={`reveal ${['d1', 'd2', 'd3', 'd4'][i]} rounded-[6px] border border-line bg-cream p-7`}>
                 <span className="font-serif text-4xl italic text-intense">{i + 1}</span>
                 <h3 className="mt-4 text-xl font-medium tracking-[-0.02em]">{s.title}</h3>
                 <p className="mt-2 text-[15px] leading-[1.7] text-ink/65">{s.text}</p>
@@ -96,7 +96,7 @@ export default function AreaPage({ id }: { id: string }) {
       <section className="pb-20">
         <div className="page-x flex flex-wrap gap-2">
           {others.map((o) => (
-            <Link key={o.slug} to={toArea(o.slug)} className="rounded-full border border-line bg-white px-4 py-2.5 text-[14px] text-ink/75 transition-colors hover:border-abyss hover:text-abyss">
+            <Link key={o.slug} to={toArea(o.slug)} className="rounded-full border border-line bg-cream px-4 py-2.5 text-[14px] text-ink/75 transition-colors hover:border-ice hover:text-ice">
               {o.name[lang]}
             </Link>
           ))}

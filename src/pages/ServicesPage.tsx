@@ -18,7 +18,7 @@ export default function ServicesPage() {
       <PageHero kicker={p.kicker} title={p.title} intro={p.intro}>
         <nav className="reveal d3 mt-10 flex flex-wrap gap-2" aria-label={p.kicker}>
           {practiceAreas.map((a) => (
-            <a key={a.slug} href={`#${a.slug}`} className="rounded-full border border-line bg-white px-4 py-2.5 text-[14px] text-ink/75 transition-colors hover:border-abyss hover:text-abyss">
+            <a key={a.slug} href={`#${a.slug}`} className="rounded-full border border-line bg-cream px-4 py-2.5 text-[14px] text-ink/75 transition-colors hover:border-ice hover:text-ice">
               {a.name[lang]}
             </a>
           ))}
@@ -28,7 +28,7 @@ export default function ServicesPage() {
       <section className="pb-24">
         <div className="page-x space-y-5">
           {practiceAreas.map((a, i) => (
-            <AnimatedSection as="article" key={a.slug} id={a.slug} className="scroll-mt-8 overflow-hidden rounded-[30px] border border-line bg-white shadow-soft">
+            <AnimatedSection as="article" key={a.slug} id={a.slug} className="scroll-mt-8 overflow-hidden rounded-[6px] border border-line bg-cream shadow-soft">
               <div className="grid lg:grid-cols-12">
                 <div className="p-7 sm:p-12 lg:col-span-7">
                   <span className="reveal font-serif text-xl italic text-atlantic">{String(i + 1).padStart(2, '0')}</span>
@@ -44,7 +44,7 @@ export default function ServicesPage() {
                     ))}
                   </ul>
                   <div className="reveal d4 mt-10 flex flex-wrap items-center gap-4">
-                    <Link to={toArea(a.slug)} className="inline-flex min-h-[48px] items-center gap-2 rounded-full bg-abyss px-6 text-[15px] font-semibold text-white transition-colors hover:bg-intense">
+                    <Link to={toArea(a.slug)} className="inline-flex min-h-[48px] items-center gap-2 rounded-full bg-abyss px-6 text-[15px] font-semibold text-navy transition-colors hover:bg-intense">
                       {a.name[lang]} <ArrowRight className="h-4 w-4" />
                     </Link>
                     <Button to={to('contact')} variant="ghost">
@@ -70,7 +70,7 @@ export default function ServicesPage() {
           <SectionTitle title={p.mediationTitle} />
           <ol className="mt-14 grid gap-4 md:grid-cols-3">
             {p.mediationSteps.map((s, i) => (
-              <li key={s.title} className={`reveal ${['d1', 'd2', 'd3'][i]} rounded-[26px] border border-line p-8 ${i === 2 ? 'bg-abyss text-white' : 'bg-white'}`}>
+              <li key={s.title} className={`reveal ${['d1', 'd2', 'd3'][i]} rounded-[6px] border border-line p-8 ${i === 2 ? 'bg-mist text-white' : 'bg-cream'}`}>
                 <span className={`font-serif text-5xl italic ${i === 2 ? 'text-haze' : 'text-intense'}`}>{i + 1}</span>
                 <h3 className="mt-5 text-2xl font-medium tracking-[-0.03em]">{s.title}</h3>
                 <p className={`mt-3 text-[15.5px] leading-[1.7] ${i === 2 ? 'text-white/70' : 'text-ink/65'}`}>{s.text}</p>
